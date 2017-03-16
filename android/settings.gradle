@@ -1,0 +1,3 @@
+rootProject.name = 'LunchLearn'
+
+include ':app'
