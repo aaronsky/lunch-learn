@@ -15,8 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
     self.launchOptions = launchOptions
-    let jsCodeLocation = RCTBundleURLProvider.sharedSettings().jsBundleURL(forBundleRoot: "index.ios", fallbackResource: nil)
     
+    let jsCodeLocation = RCTBundleURLProvider.sharedSettings().jsBundleURL(forBundleRoot: "index.ios", fallbackResource: nil)
     let rootView = RCTRootView(bundleURL: jsCodeLocation, moduleName: "lunchlearn", initialProperties: nil, launchOptions: launchOptions)
     rootView?.backgroundColor = UIColor.white
     
@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     rootViewController.view = rootView
     self.window?.rootViewController = rootViewController
     self.window?.makeKeyAndVisible()
+    
     return true
   }
 }
