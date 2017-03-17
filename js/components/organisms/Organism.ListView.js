@@ -4,24 +4,40 @@ import { ListView } from 'react-native';
 import { MoleculePlayerListItem } from 'lunchlearn/js/components/molecules';
 
 export default class OrganismListView extends Component {
+    static defaultProps = {
+        data: []
+    }
+
     constructor(props) {
         super(props);
         const dataSource = new ListView.DataSource({
             rowHasChanged: this.rowHasChanged.bind(this)
         });
         this.state = {
-            dataSource: dataSource.cloneWithRows(['row 1', 'row 2'])
+            dataSource: dataSource.cloneWithRows(this.props.data)
         };
+    }
+
+    componentWillReceiveProps(newProps) {
+        if (newProps.data && newProps.data.length) {
+            this.setState({
+                dataSource: this.state.dataSource.cloneWithRows(newProps.data)
+            })
+        }
     }
 
     renderRow(data) {
         const formattedData = {
-            type: 'sound',
-            title: data,
-            url: 'http://google.com'
+            type: 'cutlery',
+            title: data.products.reduce((accumulator, product, index) => {
+                if (index === 0) {
+                    return product.name_brand;
+                }
+                return `${accumulator}, ${product.name_brand}`;
+            }, '')
         }
         return (
-            <MoleculePlayerListItem data={formattedData} />
+            <MoleculePlayerListItem key={formattedData.title} data={formattedData} />
         );
     }
 

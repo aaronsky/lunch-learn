@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class AtomIcon extends Component {
     constructor(props) {
@@ -7,8 +8,14 @@ export default class AtomIcon extends Component {
     }
 
     render() {
+        const props = {
+            name: this.props.name,
+            size: 12,
+            color: '#00f',
+            style: [styles.base, this.props.style]
+        };
         return (
-            <Text style={[styles.base, this.props.style]}>{this.props.children}</Text>
+            <Icon {...props} />
         );
     }
 }
