@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { InteractionManager, View } from 'react-native';
 
-import { FDAService } from 'lunchlearn/js/utilities/services';
+import { NASAService } from 'lunchlearn/js/utilities/services';
 import { OrganismListView } from 'lunchlearn/js/components/organisms';
 
 export default class PageHome extends Component {
@@ -21,14 +21,20 @@ export default class PageHome extends Component {
     }
 
     async runAfterInteractions() {
-        const { results } = await FDAService.foods.events.get({ limit: 40 });
-        this.setState({ data: results });
+        try {
+            const response = await NASAService.neo.feed.get();
+            const neoResponse = (response && response.near_earth_objects) || {};
+            const data = Object.keys(neoResponse).reduce((acc, date) => { return acc.concat(neoResponse[date]) }, []);
+            this.setState({ data });
+        } catch (err) {
+            console.error(err);
+        }
     }
 
     render() {
         return (
             <View>
-                <OrganismListView data={this.state.data} />
+                <OrganismListView kind='nasa' data={this.state.data} />
             </View>
         );
     }

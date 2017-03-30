@@ -26,18 +26,17 @@ export default class OrganismListView extends Component {
         }
     }
 
-    renderRow(data) {
-        const formattedData = {
-            type: 'cutlery',
-            title: data.products.reduce((accumulator, product, index) => {
-                if (index === 0) {
-                    return product.name_brand;
-                }
-                return `${accumulator}, ${product.name_brand}`;
-            }, '')
-        }
+    renderRow(data, index) {
+        const props = {
+            key: index,
+            data: {
+                kind: this.props.kind,
+                title: JSON.stringify(data),
+                subtitle: ''
+            }
+        };
         return (
-            <MoleculePlayerListItem key={formattedData.title} data={formattedData} />
+            <MoleculePlayerListItem {...props} />
         );
     }
 

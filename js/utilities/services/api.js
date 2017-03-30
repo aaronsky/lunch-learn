@@ -1,26 +1,12 @@
 
-let baseUrl = '';
-let tempKey = '';
-
 export class Getter {
-    static setBaseUrl(url) {
-        baseUrl = url;
-    }
-
-    static setApiKey(apiKey) {
-        tempKey = apiKey;
-    }
-    
-    static create(route) {
-        const shouldAddSlash = (baseUrl.slice(-1) !== '/' && route[0] !== '/');
-        const url = `${baseUrl}${shouldAddSlash && '/'}${route}`;
-        const headers = {};
+    static create(baseUrl, route, apiKey) {
         return {
-            get: (body = {}) => {
-                if (tempKey) {
-                    body.api_key = tempKey;
-                }
-                return fetch(url, 'get', headers, body).then(response => response.text()).then(response => JSON.parse(response));
+            get: async () => {
+                const url = baseUrl + route + '?api_key=' + apiKey;
+                const response = await fetch(url);
+                const responseText = await response.text();
+                return JSON.parse(responseText);
             }
         };
     }

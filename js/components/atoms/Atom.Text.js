@@ -8,7 +8,9 @@ export default class AtomText extends Component {
 
     render() {
         return (
-            <Text style={[styles.base, this.props.style]}>{this.props.children}</Text>
+            <Text style={[styles.base, this.props.style]}>
+                {this.props.children}
+            </Text>
         );
     }
 }

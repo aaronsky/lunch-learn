@@ -6,35 +6,29 @@ const FDA_BASE_URL = 'https://api.fda.gov';
 
 export default class FDAService {
     static get drugs() {
-        Getter.setApiKey(FDA_API_KEY);
-        Getter.setBaseUrl(FDA_BASE_URL);
         return {
-            enforcements: Getter.create('drug/enforcement'),
-            events: Getter.create('drug/event.json')
+            enforcements: Getter.create(FDA_BASE_URL, 'drug/enforcement', FDA_API_KEY),
+            events: Getter.create(FDA_BASE_URL, 'drug/event.json', FDA_API_KEY)
         };
     }
 
     static get devices() {
-        Getter.setApiKey(FDA_API_KEY);
-        Getter.setBaseUrl(FDA_BASE_URL);
         return {
-            events: Getter.create('device/event.json'),
-            classifications: Getter.create('device/classification.json'),
-            '510k': Getter.create('device/510k.json'),
-            pma: Getter.create('device/pma.json'),
-            registrationlistings: Getter.create('device/registrationlisting.json'),
-            recalls: Getter.create('device/recall.json'),
-            enforcement: Getter.create('device/enforcement.json'),
-            udi: Getter.create('device/udi.json')
+            events: Getter.create(FDA_BASE_URL, 'device/event.json', FDA_API_KEY),
+            classifications: Getter.create(FDA_BASE_URL, 'device/classification.json', FDA_API_KEY),
+            '510k': Getter.create(FDA_BASE_URL, 'device/510k.json', FDA_API_KEY),
+            pma: Getter.create(FDA_BASE_URL, 'device/pma.json', FDA_API_KEY),
+            registrationlistings: Getter.create(FDA_BASE_URL, 'device/registrationlisting.json', FDA_API_KEY),
+            recalls: Getter.create(FDA_BASE_URL, 'device/recall.json', FDA_API_KEY),
+            enforcement: Getter.create(FDA_BASE_URL, 'device/enforcement.json', FDA_API_KEY),
+            udi: Getter.create(FDA_BASE_URL, 'device/udi.json', FDA_API_KEY)
         };
     }
 
     static get foods() {
-        Getter.setApiKey(FDA_API_KEY);
-        Getter.setBaseUrl(FDA_BASE_URL);
         return {
-            enforcements: Getter.create('food/enforcement.json'),
-            events: Getter.create('food/event.json')
+            enforcements: Getter.create(FDA_BASE_URL, 'food/enforcement.json', FDA_API_KEY),
+            events: Getter.create(FDA_BASE_URL, 'food/event.json', FDA_API_KEY)
         };
     }
 }

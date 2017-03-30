@@ -15,7 +15,7 @@ export default class AtomPlayerButton extends Component {
     render() {
         return (
             <TouchableOpacity onPress={() => this.props.onPress()}>
-                <AtomIcon name="play" style={[styles.base, this.props.style]} />
+                <AtomIcon name="share" style={[styles.base, this.props.style]} />
             </TouchableOpacity>
         );
     }
