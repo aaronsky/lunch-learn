@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Animated, NativeModules, Share, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Animated, Share, StyleSheet, TouchableOpacity, View } from 'react-native';
 
 import { AtomIcon, AtomText, AtomPlayerButton } from 'lunchlearn/js/components/atoms';
 
@@ -10,6 +10,7 @@ export default class MoleculePlayerListItem extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            isPlaying: false,
             expandedView: false,
             expandedValue: new Animated.Value(BASE_ROW_HEIGHT)
         };
@@ -36,6 +37,22 @@ export default class MoleculePlayerListItem extends Component {
         });
     }
 
+    onPlayerButtonPress(index) {
+        const newState = {};
+        if (this.state.isPlaying) {
+            if (index === this.state.playingIndex) {
+                newState.isPlaying = false;
+                newState.playingIndex = -1;
+            } else {
+                newState.playingIndex = index;
+            }
+        } else {
+            newState.isPlaying = true;
+            newState.playingIndex = index;
+        }
+        this.setState(newState);
+    }
+
     getDangerLevelStyle(data) {
         return null;
     }
@@ -47,6 +64,17 @@ export default class MoleculePlayerListItem extends Component {
             );
         }
         return null;
+    }
+
+    renderPlayerButton() {
+        return (
+            <AtomPlayerButton
+                style={styles.playerButton}
+                index={this.props.index}
+                onPress={this.onPlayerButtonPress.bind(this)}
+                playingIndex={this.state.playingIndex}
+                isPlaying={this.state.isPlaying} />
+        );
     }
 
     maybeRenderCompactView(data) {
@@ -65,7 +93,7 @@ export default class MoleculePlayerListItem extends Component {
                     <AtomText style={styles.title}>{data.name}</AtomText>
                     <AtomText style={styles.subtitle}>{min}m ~ {max}m</AtomText>
                 </View>
-                <AtomPlayerButton style={styles.playerButton} />
+                {this.renderPlayerButton()}
             </View>
         );
     }
@@ -86,7 +114,7 @@ export default class MoleculePlayerListItem extends Component {
                     <AtomText style={styles.title}>{data.name}</AtomText>
                     <AtomText style={styles.subtitle}>{min}m ~ {max}m</AtomText>
                 </View>
-                <AtomPlayerButton style={styles.playerButton} />
+                {this.renderPlayerButton()}
             </View>
         );
     }

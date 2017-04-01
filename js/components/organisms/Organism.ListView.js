@@ -30,6 +30,7 @@ export default class OrganismListView extends Component {
     renderRow(data, index) {
         const props = {
             key: index,
+            index,
             data
         };
         return (

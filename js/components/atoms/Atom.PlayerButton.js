@@ -1,28 +1,31 @@
 import React, { Component } from 'react';
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { NativeModules, StyleSheet, TouchableOpacity, View } from 'react-native';
 
 import { AtomIcon } from 'lunchlearn/js/components/atoms';
 
 export default class AtomPlayerButton extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            isPlaying: false
-        };
     }
 
     onPress() {
-        this.setState({
-            isPlaying: !this.state.isPlaying
-        });
+        if (this.props.isPlaying) {
+            NativeModules.AudioPlayer.pause();
+        } else {
+            NativeModules.AudioPlayer.play();
+        }
+        if (this.props.onPress && typeof this.props.onPress === 'function') {
+            this.props.onPress(this.props.index);
+        }
     }
 
     render() {
+        const isPlaying = (this.props.isPlaying && this.props.playingIndex === this.props.index);
         return (
             <TouchableOpacity onPress={this.onPress.bind(this)}>
                 <AtomIcon
-                    name={this.state.isPlaying ? 'pause' : 'play'}
-                    style={[styles.base, this.state.isPlaying ? styles.playing : null, this.props.style]} />
+                    name={isPlaying ? 'pause' : 'play'}
+                    style={[styles.base, isPlaying ? styles.playing : null, this.props.style]} />
             </TouchableOpacity>
         );
     }

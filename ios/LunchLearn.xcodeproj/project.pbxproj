@@ -15,7 +15,6 @@
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
 		139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
-		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
@@ -24,6 +23,43 @@
 		66EC76891E7A3954002CB788 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EC76881E7A3954002CB788 /* AppDelegate.swift */; };
 		66EC768C1E7A4A36002CB788 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66EC768B1E7A4A36002CB788 /* FontAwesome.ttf */; };
 		66EC76931E7A4A9F002CB788 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66EC76921E7A4A8D002CB788 /* libRNVectorIcons.a */; };
+		66EE80D01E8F6E4D002C67FA /* _3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 66EE80AB1E8F6E4D002C67FA /* _3.mp3 */; };
+		66EE80D11E8F6E4D002C67FA /* 05 Yoda Goes For A Swim.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 66EE80AC1E8F6E4D002C67FA /* 05 Yoda Goes For A Swim.mp3 */; };
+		66EE80D21E8F6E4D002C67FA /* 5am est.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 66EE80AD1E8F6E4D002C67FA /* 5am est.mp3 */; };
+		66EE80D31E8F6E4D002C67FA /* 08 Space Revival.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 66EE80AE1E8F6E4D002C67FA /* 08 Space Revival.mp3 */; };
+		66EE80D41E8F6E4D002C67FA /* 1000.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 66EE80AF1E8F6E4D002C67FA /* 1000.mp3 */; };
+		66EE80D51E8F6E4D002C67FA /* 949812398OOOO.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 66EE80B01E8F6E4D002C67FA /* 949812398OOOO.mp3 */; };
+		66EE80D61E8F6E4D002C67FA /* Capsule Silence.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 66EE80B11E8F6E4D002C67FA /* Capsule Silence.mp3 */; };
+		66EE80D71E8F6E4D002C67FA /* Crash(Crashed).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 66EE80B21E8F6E4D002C67FA /* Crash(Crashed).mp3 */; };
+		66EE80D81E8F6E4D002C67FA /* e-mode.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 66EE80B31E8F6E4D002C67FA /* e-mode.mp3 */; };
+		66EE80D91E8F6E4D002C67FA /* F.R.U.G..mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 66EE80B41E8F6E4D002C67FA /* F.R.U.G..mp3 */; };
+		66EE80DA1E8F6E4D002C67FA /* FEELGOOD.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 66EE80B51E8F6E4D002C67FA /* FEELGOOD.mp3 */; };
+		66EE80DB1E8F6E4D002C67FA /* forest walk.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 66EE80B61E8F6E4D002C67FA /* forest walk.mp3 */; };
+		66EE80DC1E8F6E4D002C67FA /* gentle anxious.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 66EE80B71E8F6E4D002C67FA /* gentle anxious.mp3 */; };
+		66EE80DD1E8F6E4D002C67FA /* Glass.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 66EE80B81E8F6E4D002C67FA /* Glass.mp3 */; };
+		66EE80DE1E8F6E4D002C67FA /* Gurli.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 66EE80B91E8F6E4D002C67FA /* Gurli.mp3 */; };
+		66EE80DF1E8F6E4D002C67FA /* H4rdcore Secret.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 66EE80BA1E8F6E4D002C67FA /* H4rdcore Secret.mp3 */; };
+		66EE80E01E8F6E4D002C67FA /* Just Dive.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 66EE80BB1E8F6E4D002C67FA /* Just Dive.mp3 */; };
+		66EE80E11E8F6E4D002C67FA /* Lilo (ft. Lindsay Lowend).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 66EE80BC1E8F6E4D002C67FA /* Lilo (ft. Lindsay Lowend).mp3 */; };
+		66EE80E21E8F6E4D002C67FA /* Miami Potato.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 66EE80BD1E8F6E4D002C67FA /* Miami Potato.mp3 */; };
+		66EE80E31E8F6E4D002C67FA /* My Heart My Body.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 66EE80BE1E8F6E4D002C67FA /* My Heart My Body.mp3 */; };
+		66EE80E41E8F6E4D002C67FA /* pcj.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 66EE80BF1E8F6E4D002C67FA /* pcj.mp3 */; };
+		66EE80E51E8F6E4D002C67FA /* Pearl.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 66EE80C01E8F6E4D002C67FA /* Pearl.mp3 */; };
+		66EE80E61E8F6E4D002C67FA /* Phase2X.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 66EE80C11E8F6E4D002C67FA /* Phase2X.mp3 */; };
+		66EE80E71E8F6E4D002C67FA /* PM Dawn.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 66EE80C21E8F6E4D002C67FA /* PM Dawn.mp3 */; };
+		66EE80E81E8F6E4D002C67FA /* Poisonous Gas.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 66EE80C31E8F6E4D002C67FA /* Poisonous Gas.mp3 */; };
+		66EE80E91E8F6E4D002C67FA /* Rush.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 66EE80C41E8F6E4D002C67FA /* Rush.mp3 */; };
+		66EE80EA1E8F6E4D002C67FA /* Strawberry Love (ft. Amy Cakes).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 66EE80C51E8F6E4D002C67FA /* Strawberry Love (ft. Amy Cakes).mp3 */; };
+		66EE80EB1E8F6E4D002C67FA /* Swan.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 66EE80C61E8F6E4D002C67FA /* Swan.mp3 */; };
+		66EE80EC1E8F6E4D002C67FA /* Sweet & Sour - Lovelyz (Anamanaguchi BOOtleg).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 66EE80C71E8F6E4D002C67FA /* Sweet & Sour - Lovelyz (Anamanaguchi BOOtleg).mp3 */; };
+		66EE80ED1E8F6E4D002C67FA /* sweet sunset.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 66EE80C81E8F6E4D002C67FA /* sweet sunset.mp3 */; };
+		66EE80EE1E8F6E4D002C67FA /* Thinking About U.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 66EE80C91E8F6E4D002C67FA /* Thinking About U.mp3 */; };
+		66EE80EF1E8F6E4D002C67FA /* Time Moves On.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 66EE80CA1E8F6E4D002C67FA /* Time Moves On.mp3 */; };
+		66EE80F01E8F6E4D002C67FA /* Toi et Moi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 66EE80CB1E8F6E4D002C67FA /* Toi et Moi.mp3 */; };
+		66EE80F11E8F6E4D002C67FA /* Unalive.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 66EE80CC1E8F6E4D002C67FA /* Unalive.mp3 */; };
+		66EE80F21E8F6E4D002C67FA /* UR CRAZY 4 DIS 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 66EE80CD1E8F6E4D002C67FA /* UR CRAZY 4 DIS 1.mp3 */; };
+		66EE80F31E8F6E4D002C67FA /* when yr around.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 66EE80CE1E8F6E4D002C67FA /* when yr around.mp3 */; };
+		66EE80F41E8F6E4D002C67FA /* XS.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 66EE80CF1E8F6E4D002C67FA /* XS.mp3 */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 /* End PBXBuildFile section */
 
@@ -222,17 +258,53 @@
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* LunchLearn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LunchLearn.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = LunchLearn/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = LunchLearn/Info.plist; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
-		6619254F1E7A4E930072B9E3 /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AudioPlayer.swift; path = LunchLearn/AudioPlayer.swift; sourceTree = "<group>"; };
-		6619256B1E7A4EA90072B9E3 /* AudioPlayerBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioPlayerBridge.m; path = LunchLearn/AudioPlayerBridge.m; sourceTree = "<group>"; };
-		66EC76871E7A3954002CB788 /* LunchLearn-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "LunchLearn-Bridging-Header.h"; path = "LunchLearn/LunchLearn-Bridging-Header.h"; sourceTree = "<group>"; };
-		66EC76881E7A3954002CB788 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = LunchLearn/AppDelegate.swift; sourceTree = "<group>"; };
-		66EC768B1E7A4A36002CB788 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		6619254F1E7A4E930072B9E3 /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		6619256B1E7A4EA90072B9E3 /* AudioPlayerBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayerBridge.m; sourceTree = "<group>"; };
+		66EC76871E7A3954002CB788 /* LunchLearn-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LunchLearn-Bridging-Header.h"; sourceTree = "<group>"; };
+		66EC76881E7A3954002CB788 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		66EC768B1E7A4A36002CB788 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = "../../../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		66EC768D1E7A4A8D002CB788 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
+		66EE80AB1E8F6E4D002C67FA /* _3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = _3.mp3; sourceTree = "<group>"; };
+		66EE80AC1E8F6E4D002C67FA /* 05 Yoda Goes For A Swim.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "05 Yoda Goes For A Swim.mp3"; sourceTree = "<group>"; };
+		66EE80AD1E8F6E4D002C67FA /* 5am est.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "5am est.mp3"; sourceTree = "<group>"; };
+		66EE80AE1E8F6E4D002C67FA /* 08 Space Revival.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "08 Space Revival.mp3"; sourceTree = "<group>"; };
+		66EE80AF1E8F6E4D002C67FA /* 1000.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1000.mp3; sourceTree = "<group>"; };
+		66EE80B01E8F6E4D002C67FA /* 949812398OOOO.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 949812398OOOO.mp3; sourceTree = "<group>"; };
+		66EE80B11E8F6E4D002C67FA /* Capsule Silence.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Capsule Silence.mp3"; sourceTree = "<group>"; };
+		66EE80B21E8F6E4D002C67FA /* Crash(Crashed).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Crash(Crashed).mp3"; sourceTree = "<group>"; };
+		66EE80B31E8F6E4D002C67FA /* e-mode.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "e-mode.mp3"; sourceTree = "<group>"; };
+		66EE80B41E8F6E4D002C67FA /* F.R.U.G..mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = F.R.U.G..mp3; sourceTree = "<group>"; };
+		66EE80B51E8F6E4D002C67FA /* FEELGOOD.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = FEELGOOD.mp3; sourceTree = "<group>"; };
+		66EE80B61E8F6E4D002C67FA /* forest walk.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "forest walk.mp3"; sourceTree = "<group>"; };
+		66EE80B71E8F6E4D002C67FA /* gentle anxious.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "gentle anxious.mp3"; sourceTree = "<group>"; };
+		66EE80B81E8F6E4D002C67FA /* Glass.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Glass.mp3; sourceTree = "<group>"; };
+		66EE80B91E8F6E4D002C67FA /* Gurli.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Gurli.mp3; sourceTree = "<group>"; };
+		66EE80BA1E8F6E4D002C67FA /* H4rdcore Secret.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "H4rdcore Secret.mp3"; sourceTree = "<group>"; };
+		66EE80BB1E8F6E4D002C67FA /* Just Dive.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Just Dive.mp3"; sourceTree = "<group>"; };
+		66EE80BC1E8F6E4D002C67FA /* Lilo (ft. Lindsay Lowend).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Lilo (ft. Lindsay Lowend).mp3"; sourceTree = "<group>"; };
+		66EE80BD1E8F6E4D002C67FA /* Miami Potato.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Miami Potato.mp3"; sourceTree = "<group>"; };
+		66EE80BE1E8F6E4D002C67FA /* My Heart My Body.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "My Heart My Body.mp3"; sourceTree = "<group>"; };
+		66EE80BF1E8F6E4D002C67FA /* pcj.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pcj.mp3; sourceTree = "<group>"; };
+		66EE80C01E8F6E4D002C67FA /* Pearl.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Pearl.mp3; sourceTree = "<group>"; };
+		66EE80C11E8F6E4D002C67FA /* Phase2X.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Phase2X.mp3; sourceTree = "<group>"; };
+		66EE80C21E8F6E4D002C67FA /* PM Dawn.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "PM Dawn.mp3"; sourceTree = "<group>"; };
+		66EE80C31E8F6E4D002C67FA /* Poisonous Gas.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Poisonous Gas.mp3"; sourceTree = "<group>"; };
+		66EE80C41E8F6E4D002C67FA /* Rush.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Rush.mp3; sourceTree = "<group>"; };
+		66EE80C51E8F6E4D002C67FA /* Strawberry Love (ft. Amy Cakes).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Strawberry Love (ft. Amy Cakes).mp3"; sourceTree = "<group>"; };
+		66EE80C61E8F6E4D002C67FA /* Swan.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Swan.mp3; sourceTree = "<group>"; };
+		66EE80C71E8F6E4D002C67FA /* Sweet & Sour - Lovelyz (Anamanaguchi BOOtleg).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Sweet & Sour - Lovelyz (Anamanaguchi BOOtleg).mp3"; sourceTree = "<group>"; };
+		66EE80C81E8F6E4D002C67FA /* sweet sunset.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sweet sunset.mp3"; sourceTree = "<group>"; };
+		66EE80C91E8F6E4D002C67FA /* Thinking About U.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Thinking About U.mp3"; sourceTree = "<group>"; };
+		66EE80CA1E8F6E4D002C67FA /* Time Moves On.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Time Moves On.mp3"; sourceTree = "<group>"; };
+		66EE80CB1E8F6E4D002C67FA /* Toi et Moi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Toi et Moi.mp3"; sourceTree = "<group>"; };
+		66EE80CC1E8F6E4D002C67FA /* Unalive.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Unalive.mp3; sourceTree = "<group>"; };
+		66EE80CD1E8F6E4D002C67FA /* UR CRAZY 4 DIS 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "UR CRAZY 4 DIS 1.mp3"; sourceTree = "<group>"; };
+		66EE80CE1E8F6E4D002C67FA /* when yr around.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "when yr around.mp3"; sourceTree = "<group>"; };
+		66EE80CF1E8F6E4D002C67FA /* XS.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = XS.mp3; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -323,14 +395,13 @@
 		13B07FAE1A68108700A75B9A /* LunchLearn */ = {
 			isa = PBXGroup;
 			children = (
+				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				66EC768A1E7A4A11002CB788 /* Resources */,
 				66EC76831E7A3532002CB788 /* Supporting Files */,
 				66EC76811E7A3516002CB788 /* App Delegate */,
 				66EC76671E7A350D002CB788 /* Native Modules */,
-				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
-				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 			);
-			name = LunchLearn;
+			path = LunchLearn;
 			sourceTree = "<group>";
 		};
 		146834001AC3E56700842450 /* Products */ = {
@@ -363,7 +434,7 @@
 				6619254F1E7A4E930072B9E3 /* AudioPlayer.swift */,
 				6619256B1E7A4EA90072B9E3 /* AudioPlayerBridge.m */,
 			);
-			name = "Audio Player";
+			path = "Audio Player";
 			sourceTree = "<group>";
 		};
 		66EC76671E7A350D002CB788 /* Native Modules */ = {
@@ -371,7 +442,7 @@
 			children = (
 				6619256D1E7A4F1F0072B9E3 /* Audio Player */,
 			);
-			name = "Native Modules";
+			path = "Native Modules";
 			sourceTree = "<group>";
 		};
 		66EC76811E7A3516002CB788 /* App Delegate */ = {
@@ -379,7 +450,7 @@
 			children = (
 				66EC76881E7A3954002CB788 /* AppDelegate.swift */,
 			);
-			name = "App Delegate";
+			path = "App Delegate";
 			sourceTree = "<group>";
 		};
 		66EC76831E7A3532002CB788 /* Supporting Files */ = {
@@ -389,7 +460,7 @@
 				66EC76851E7A3546002CB788 /* Info.plist */,
 				66EC76841E7A353C002CB788 /* Bridging Header */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		66EC76841E7A353C002CB788 /* Bridging Header */ = {
@@ -397,7 +468,7 @@
 			children = (
 				66EC76871E7A3954002CB788 /* LunchLearn-Bridging-Header.h */,
 			);
-			name = "Bridging Header";
+			path = "Bridging Header";
 			sourceTree = "<group>";
 		};
 		66EC76851E7A3546002CB788 /* Info.plist */ = {
@@ -405,7 +476,7 @@
 			children = (
 				13B07FB61A68108700A75B9A /* Info.plist */,
 			);
-			name = Info.plist;
+			path = Info.plist;
 			sourceTree = "<group>";
 		};
 		66EC76861E7A35D8002CB788 /* Asset Catalog */ = {
@@ -413,15 +484,16 @@
 			children = (
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 			);
-			name = "Asset Catalog";
+			path = "Asset Catalog";
 			sourceTree = "<group>";
 		};
 		66EC768A1E7A4A11002CB788 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				66EE80AA1E8F6E35002C67FA /* Audio */,
 				66EC768B1E7A4A36002CB788 /* FontAwesome.ttf */,
 			);
-			name = Resources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		66EC768E1E7A4A8D002CB788 /* Products */ = {
@@ -430,6 +502,50 @@
 				66EC76921E7A4A8D002CB788 /* libRNVectorIcons.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		66EE80AA1E8F6E35002C67FA /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				66EE80AB1E8F6E4D002C67FA /* _3.mp3 */,
+				66EE80AC1E8F6E4D002C67FA /* 05 Yoda Goes For A Swim.mp3 */,
+				66EE80AD1E8F6E4D002C67FA /* 5am est.mp3 */,
+				66EE80AE1E8F6E4D002C67FA /* 08 Space Revival.mp3 */,
+				66EE80AF1E8F6E4D002C67FA /* 1000.mp3 */,
+				66EE80B01E8F6E4D002C67FA /* 949812398OOOO.mp3 */,
+				66EE80B11E8F6E4D002C67FA /* Capsule Silence.mp3 */,
+				66EE80B21E8F6E4D002C67FA /* Crash(Crashed).mp3 */,
+				66EE80B31E8F6E4D002C67FA /* e-mode.mp3 */,
+				66EE80B41E8F6E4D002C67FA /* F.R.U.G..mp3 */,
+				66EE80B51E8F6E4D002C67FA /* FEELGOOD.mp3 */,
+				66EE80B61E8F6E4D002C67FA /* forest walk.mp3 */,
+				66EE80B71E8F6E4D002C67FA /* gentle anxious.mp3 */,
+				66EE80B81E8F6E4D002C67FA /* Glass.mp3 */,
+				66EE80B91E8F6E4D002C67FA /* Gurli.mp3 */,
+				66EE80BA1E8F6E4D002C67FA /* H4rdcore Secret.mp3 */,
+				66EE80BB1E8F6E4D002C67FA /* Just Dive.mp3 */,
+				66EE80BC1E8F6E4D002C67FA /* Lilo (ft. Lindsay Lowend).mp3 */,
+				66EE80BD1E8F6E4D002C67FA /* Miami Potato.mp3 */,
+				66EE80BE1E8F6E4D002C67FA /* My Heart My Body.mp3 */,
+				66EE80BF1E8F6E4D002C67FA /* pcj.mp3 */,
+				66EE80C01E8F6E4D002C67FA /* Pearl.mp3 */,
+				66EE80C11E8F6E4D002C67FA /* Phase2X.mp3 */,
+				66EE80C21E8F6E4D002C67FA /* PM Dawn.mp3 */,
+				66EE80C31E8F6E4D002C67FA /* Poisonous Gas.mp3 */,
+				66EE80C41E8F6E4D002C67FA /* Rush.mp3 */,
+				66EE80C51E8F6E4D002C67FA /* Strawberry Love (ft. Amy Cakes).mp3 */,
+				66EE80C61E8F6E4D002C67FA /* Swan.mp3 */,
+				66EE80C71E8F6E4D002C67FA /* Sweet & Sour - Lovelyz (Anamanaguchi BOOtleg).mp3 */,
+				66EE80C81E8F6E4D002C67FA /* sweet sunset.mp3 */,
+				66EE80C91E8F6E4D002C67FA /* Thinking About U.mp3 */,
+				66EE80CA1E8F6E4D002C67FA /* Time Moves On.mp3 */,
+				66EE80CB1E8F6E4D002C67FA /* Toi et Moi.mp3 */,
+				66EE80CC1E8F6E4D002C67FA /* Unalive.mp3 */,
+				66EE80CD1E8F6E4D002C67FA /* UR CRAZY 4 DIS 1.mp3 */,
+				66EE80CE1E8F6E4D002C67FA /* when yr around.mp3 */,
+				66EE80CF1E8F6E4D002C67FA /* XS.mp3 */,
+			);
+			path = Audio;
 			sourceTree = "<group>";
 		};
 		78C398B11ACF4ADC00677621 /* Products */ = {
@@ -515,10 +631,11 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = RPZ2SV4BYG;
 						LastSwiftMigration = 0820;
 					};
 				};
@@ -781,9 +898,45 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66EE80F41E8F6E4D002C67FA /* XS.mp3 in Resources */,
+				66EE80E01E8F6E4D002C67FA /* Just Dive.mp3 in Resources */,
+				66EE80EC1E8F6E4D002C67FA /* Sweet & Sour - Lovelyz (Anamanaguchi BOOtleg).mp3 in Resources */,
+				66EE80D51E8F6E4D002C67FA /* 949812398OOOO.mp3 in Resources */,
+				66EE80E41E8F6E4D002C67FA /* pcj.mp3 in Resources */,
+				66EE80E51E8F6E4D002C67FA /* Pearl.mp3 in Resources */,
+				66EE80DD1E8F6E4D002C67FA /* Glass.mp3 in Resources */,
+				66EE80D01E8F6E4D002C67FA /* _3.mp3 in Resources */,
+				66EE80DA1E8F6E4D002C67FA /* FEELGOOD.mp3 in Resources */,
+				66EE80EA1E8F6E4D002C67FA /* Strawberry Love (ft. Amy Cakes).mp3 in Resources */,
+				66EE80EE1E8F6E4D002C67FA /* Thinking About U.mp3 in Resources */,
+				66EE80F01E8F6E4D002C67FA /* Toi et Moi.mp3 in Resources */,
+				66EE80DF1E8F6E4D002C67FA /* H4rdcore Secret.mp3 in Resources */,
+				66EE80E91E8F6E4D002C67FA /* Rush.mp3 in Resources */,
+				66EE80F21E8F6E4D002C67FA /* UR CRAZY 4 DIS 1.mp3 in Resources */,
+				66EE80D71E8F6E4D002C67FA /* Crash(Crashed).mp3 in Resources */,
+				66EE80D31E8F6E4D002C67FA /* 08 Space Revival.mp3 in Resources */,
+				66EE80D11E8F6E4D002C67FA /* 05 Yoda Goes For A Swim.mp3 in Resources */,
+				66EE80D81E8F6E4D002C67FA /* e-mode.mp3 in Resources */,
+				66EE80DE1E8F6E4D002C67FA /* Gurli.mp3 in Resources */,
+				66EE80DB1E8F6E4D002C67FA /* forest walk.mp3 in Resources */,
+				66EE80F31E8F6E4D002C67FA /* when yr around.mp3 in Resources */,
+				66EE80E31E8F6E4D002C67FA /* My Heart My Body.mp3 in Resources */,
+				66EE80D21E8F6E4D002C67FA /* 5am est.mp3 in Resources */,
+				66EE80E11E8F6E4D002C67FA /* Lilo (ft. Lindsay Lowend).mp3 in Resources */,
+				66EE80EF1E8F6E4D002C67FA /* Time Moves On.mp3 in Resources */,
+				66EE80D61E8F6E4D002C67FA /* Capsule Silence.mp3 in Resources */,
+				66EE80E81E8F6E4D002C67FA /* Poisonous Gas.mp3 in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				66EE80DC1E8F6E4D002C67FA /* gentle anxious.mp3 in Resources */,
+				66EE80ED1E8F6E4D002C67FA /* sweet sunset.mp3 in Resources */,
 				66EC768C1E7A4A36002CB788 /* FontAwesome.ttf in Resources */,
+				66EE80D91E8F6E4D002C67FA /* F.R.U.G..mp3 in Resources */,
+				66EE80D41E8F6E4D002C67FA /* 1000.mp3 in Resources */,
+				66EE80E21E8F6E4D002C67FA /* Miami Potato.mp3 in Resources */,
+				66EE80EB1E8F6E4D002C67FA /* Swan.mp3 in Resources */,
+				66EE80F11E8F6E4D002C67FA /* Unalive.mp3 in Resources */,
+				66EE80E71E8F6E4D002C67FA /* PM Dawn.mp3 in Resources */,
+				66EE80E61E8F6E4D002C67FA /* Phase2X.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -819,35 +972,27 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-		13B07FB11A68108700A75B9A /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				13B07FB21A68108700A75B9A /* Base */,
-			);
-			name = LaunchScreen.xib;
-			path = LunchLearn;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				INFOPLIST_FILE = LunchLearn/Info.plist;
+				DEVELOPMENT_TEAM = RPZ2SV4BYG;
+				INFOPLIST_FILE = "$(SRCROOT)/LunchLearn/Supporting Files/Info.plist/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = LunchLearn;
-				SWIFT_OBJC_BRIDGING_HEADER = "LunchLearn/LunchLearn-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "LunchLearn/Supporting Files/Bridging Header/LunchLearn-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -858,17 +1003,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = LunchLearn/Info.plist;
+				DEVELOPMENT_TEAM = RPZ2SV4BYG;
+				INFOPLIST_FILE = "$(SRCROOT)/LunchLearn/Supporting Files/Info.plist/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = LunchLearn;
-				SWIFT_OBJC_BRIDGING_HEADER = "LunchLearn/LunchLearn-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "LunchLearn/Supporting Files/Bridging Header/LunchLearn-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -887,15 +1036,19 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -928,8 +1081,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -937,6 +1092,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -946,6 +1102,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
