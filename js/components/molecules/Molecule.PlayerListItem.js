@@ -7,27 +7,30 @@ const BASE_ROW_HEIGHT = 75;
 const EXPANDED_ROW_HEIGHT = 150;
 
 export default class MoleculePlayerListItem extends Component {
+    static defaultProps = {
+        data: {},
+        index: -1,
+    }
+
     constructor(props) {
         super(props);
         this.state = {
-            isPlaying: false,
             expandedView: false,
             expandedValue: new Animated.Value(BASE_ROW_HEIGHT)
         };
     }
 
     onPress() {
+        const fromValue = this.state.expandedView ? EXPANDED_ROW_HEIGHT : BASE_ROW_HEIGHT;
         const toValue = this.state.expandedView ? BASE_ROW_HEIGHT : EXPANDED_ROW_HEIGHT;
-        this.state.expandedValue.setValue(this.state.expandedView ? EXPANDED_ROW_HEIGHT : BASE_ROW_HEIGHT);
+        this.state.expandedValue.setValue(fromValue);
         this.setState({
             expandedView: !this.state.expandedView
         });
         Animated.spring(this.state.expandedValue, {
             toValue,
             friction: 5
-        }).start((event) => {
-
-        });
+        }).start();
     }
 
     onLongPress(data) {
@@ -35,22 +38,6 @@ export default class MoleculePlayerListItem extends Component {
             message: data.name,
             url: data.nasa_jpl_url
         });
-    }
-
-    onPlayerButtonPress(index) {
-        const newState = {};
-        if (this.state.isPlaying) {
-            if (index === this.state.playingIndex) {
-                newState.isPlaying = false;
-                newState.playingIndex = -1;
-            } else {
-                newState.playingIndex = index;
-            }
-        } else {
-            newState.isPlaying = true;
-            newState.playingIndex = index;
-        }
-        this.setState(newState);
     }
 
     getDangerLevelStyle(data) {
@@ -67,21 +54,30 @@ export default class MoleculePlayerListItem extends Component {
     }
 
     renderPlayerButton() {
+        const { app, data } = this.props;
+        const id = data.neo_reference_id;
+        const props = {
+            style: styles.playerButton,
+            app,
+            id
+        }
         return (
-            <AtomPlayerButton
-                style={styles.playerButton}
-                index={this.props.index}
-                onPress={this.onPlayerButtonPress.bind(this)}
-                playingIndex={this.state.playingIndex}
-                isPlaying={this.state.isPlaying} />
+            <AtomPlayerButton {...props} />
         );
     }
 
+    formattedTextData(data) {
+        return {
+            id: data.neo_reference_id,
+            name: data.name,
+            min: (+data.estimated_diameter.meters.estimated_diameter_min.toFixed(2)).toLocaleString(),
+            max: (+data.estimated_diameter.meters.estimated_diameter_max.toFixed(2)).toLocaleString(),
+            velocity: (+(+data.close_approach_data[0].relative_velocity.miles_per_hour).toFixed(2)).toLocaleString()
+        };
+    }
+
     maybeRenderCompactView(data) {
-        const name = data.name;
-        const { meters } = data.estimated_diameter;
-        const min = +meters.estimated_diameter_min.toFixed(2);
-        const max = +meters.estimated_diameter_max.toFixed(2);
+        const formattedData = this.formattedTextData(data);
 
         return (
             <View style={styles.container}>
@@ -90,8 +86,8 @@ export default class MoleculePlayerListItem extends Component {
                     {this.maybeRenderWarning(data)}
                 </View>
                 <View style={styles.textContainer}>
-                    <AtomText style={styles.title}>{data.name}</AtomText>
-                    <AtomText style={styles.subtitle}>{min}m ~ {max}m</AtomText>
+                    <AtomText style={styles.title}>{formattedData.name}</AtomText>
+                    <AtomText style={styles.subtitle}>{formattedData.min}m ~ {formattedData.max}m in diameter</AtomText>
                 </View>
                 {this.renderPlayerButton()}
             </View>
@@ -99,10 +95,7 @@ export default class MoleculePlayerListItem extends Component {
     }
 
     maybeRenderExpandedView(data) {
-        const name = data.name;
-        const { meters } = data.estimated_diameter;
-        const min = +meters.estimated_diameter_min.toFixed(2);
-        const max = +meters.estimated_diameter_max.toFixed(2);
+        const formattedData = this.formattedTextData(data);
 
         return (
             <View style={styles.container}>
@@ -111,8 +104,10 @@ export default class MoleculePlayerListItem extends Component {
                     {this.maybeRenderWarning(data)}
                 </View>
                 <View style={styles.textContainer}>
-                    <AtomText style={styles.title}>{data.name}</AtomText>
-                    <AtomText style={styles.subtitle}>{min}m ~ {max}m</AtomText>
+                    <AtomText style={styles.title}>{formattedData.name}</AtomText>
+                    <AtomText style={styles.subtitle}>{formattedData.min}m ~ {formattedData.max}m in diameter</AtomText>
+                    <AtomText style={styles.subtitle}>{formattedData.velocity} mi/h</AtomText>
+                    <AtomText style={styles.subtitle}>ID: {formattedData.id}</AtomText>
                 </View>
                 {this.renderPlayerButton()}
             </View>
@@ -138,8 +133,6 @@ let styles = StyleSheet.create({
         justifyContent: 'space-around',
         alignItems: 'center',
         height: BASE_ROW_HEIGHT,
-        borderBottomWidth: 0.5,
-        borderBottomColor: '#ddd'
     },
     iconContainer: {
         flexDirection: 'row',

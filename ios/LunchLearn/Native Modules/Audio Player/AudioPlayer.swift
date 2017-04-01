@@ -21,9 +21,17 @@ class AudioPlayer: NSObject, RCTBridgeModule {
     return "AudioPlayer"
   }
   
-  @objc func play() -> Void {
+  public func constantsToExport() -> [String : Any]! {
+    let urls = Bundle.main.urls(forResourcesWithExtension: "mp3", subdirectory: nil)!
+    let songNames = urls.map() { url in
+      return url.lastPathComponent.replacingOccurrences(of: ".mp3", with: "")
+    }
+    return [ "songs": songNames ]
+  }
+  
+  @objc func play(_ song: String) -> Void {
     if player.currentItem == nil {
-      reset()
+      reset(song)
     }
     player.play()
   }
@@ -32,8 +40,20 @@ class AudioPlayer: NSObject, RCTBridgeModule {
     player.pause()
   }
   
-  @objc func reset() -> Void {
-    let url = Bundle.main.url(forResource: "Capsule Silence", withExtension: "mp3")!
+  @objc func stop() -> Void {
+    pause()
+    reset()
+  }
+  
+  func reset(_ songName: String? = nil) -> Void {
+    guard let song = songName else {
+      player.replaceCurrentItem(with: nil)
+      return
+    }
+    guard let url = Bundle.main.url(forResource: song, withExtension: "mp3") else {
+      player.replaceCurrentItem(with: nil)
+      return
+    }
     let playerItem = AVPlayerItem(url: url)
     player.replaceCurrentItem(with: playerItem)
   }

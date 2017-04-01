@@ -2,9 +2,19 @@ import React, { Component } from 'react';
 import { Navigator, StyleSheet, View } from 'react-native';
 
 import { AtomText } from 'lunchlearn/js/components/atoms';
-import PageHome from 'lunchlearn/js/pages/home';
+import * as pages from 'lunchlearn/js/pages';
+import connectComponent from 'lunchlearn/js/utilities/connectComponent';
 
-export default class Navigation extends Component {
+export class Navigation extends Component {
+    constructor(props) {
+        super(props);
+        this.initialRoute = {
+            id: pages.PageHome.id,
+            title: pages.PageHome.title,
+            component: connectComponent(pages.PageHome)
+        };
+    }
+
     get navigationBar() {
         const leftButton = (route, navigator, index, navState) => {
             return null;
@@ -14,7 +24,7 @@ export default class Navigation extends Component {
         };
         const title = (route, navigator, index, navState) => {
             return (
-                <AtomText style={styles.navigationTitle}>{route.title}</AtomText>
+                <AtomText style={styles.navigationTitle}>{route.title || 'WHAT'}</AtomText>
             );
         };
         const props = {
@@ -31,10 +41,19 @@ export default class Navigation extends Component {
     }
 
     renderScene(route, navigator) {
-        if (route.id === 'home') {
+        const renderedScene = React.createElement(route.component, {
+            ...route.props,
+            app: this.props,
+            route: {
+                name: route.name,
+                id: route.id,
+                index: route.index
+            }
+        });
+        if (route.component) {
             return (
                 <View style={styles.container}>
-                    <PageHome />
+                    {renderedScene}
                 </View>
             );
         }
@@ -44,7 +63,7 @@ export default class Navigation extends Component {
     render() {
         return (
             <Navigator
-                initialRoute={this.props.initialRoute}
+                initialRoute={this.initialRoute}
                 renderScene={this.renderScene.bind(this)}
                 navigationBar={this.navigationBar}
             />
@@ -70,3 +89,10 @@ let styles = StyleSheet.create({
         paddingTop: 64
     }
 });
+
+export const LayoutComponent = Navigation;
+export function mapStateToProps(state) {
+    return {
+        ...state.app
+    };
+}

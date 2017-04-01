@@ -6,7 +6,7 @@ import { MoleculePlayerListItem } from 'lunchlearn/js/components/molecules';
 export default class OrganismListView extends Component {
     static defaultProps = {
         data: [],
-        onEndReached: () => {}
+        onEndReached: () => { }
     }
 
     constructor(props) {
@@ -27,11 +27,13 @@ export default class OrganismListView extends Component {
         }
     }
 
-    renderRow(data, index) {
+    renderRow(data, sectionID, rowID, highlightRow) {
+        const index = +rowID;
         const props = {
-            key: index,
+            key: `${sectionID}-${rowID}`,
+            app: this.props.app,
             index,
-            data
+            data,
         };
         return (
             <MoleculePlayerListItem {...props} />
@@ -42,11 +44,19 @@ export default class OrganismListView extends Component {
         return row !== newRow;
     }
 
+    renderSeparator(sectionID, rowID, adjacentRowHighlighted) {
+        return (
+            <View
+                key={`${sectionID}-${rowID}`}
+                style={styles.separator} />
+        );
+    }
+
     maybeRenderFooter() {
-        if (this.props.loading) {
+        if (this.props.app.isLoading) {
             return (
                 <View style={styles.loading}>
-                <ActivityIndicator />
+                    <ActivityIndicator />
                 </View>
             );
         }
@@ -63,6 +73,7 @@ export default class OrganismListView extends Component {
         const props = {
             dataSource: this.state.dataSource,
             renderRow: this.renderRow.bind(this),
+            renderSeparator: this.renderSeparator.bind(this),
             enableEmptySections: true,
             renderFooter: this.maybeRenderFooter.bind(this),
             onEndReached: this.onEndReached.bind(this),
@@ -81,5 +92,9 @@ let styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         padding: 25
+    },
+    separator: {
+        height: 0.5,
+        backgroundColor: '#ddd'
     }
 });

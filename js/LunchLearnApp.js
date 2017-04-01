@@ -1,20 +1,25 @@
 import React, { Component } from 'react';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
 
-import Navigation from 'lunchlearn/js/utilities/navigation';
-import PageHome from 'lunchlearn/js/pages/home';
+import { PageHome } from './pages';
+import * as reducers from 'lunchlearn/js/reducers';
+import * as Navigation from 'lunchlearn/js/utilities/navigation';
+import connectComponent from 'lunchlearn/js/utilities/connectComponent';
+
+const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
+const reducer = combineReducers(reducers);
+const store = createStoreWithMiddleware(reducer);
+
+const content = React.createElement(connectComponent(Navigation), {});
 
 export default class LunchLearnApp extends Component {
-    
     render() {
-        const props = {
-            initialRoute: {
-                id: PageHome.id,
-                title: PageHome.title,
-                index: 0
-            }
-        }
         return (
-            <Navigation {...props} />
+            <Provider store={store}>
+                {content}
+            </Provider>
         );
     }
 }
