@@ -5,36 +5,73 @@ import { NASAService } from 'lunchlearn/js/utilities/services';
 import { OrganismListView } from 'lunchlearn/js/components/organisms';
 
 export default class PageHome extends Component {
+    static get id() {
+        return 'home';
+    }
+
+    static get title() {
+        return 'Home';
+    }
+
     constructor(props) {
         super(props);
         this.state = {
-            data: []
+            loading: false,
+            data: [],
+            prevUri: null,
+            nextUri: null
         };
     }
 
     componentDidMount() {
-        InteractionManager.runAfterInteractions(this.runAfterInteractions.bind(this));
+        InteractionManager.runAfterInteractions(this.loadData.bind(this));
     }
 
     componentWillUnmount() {
 
     }
 
-    async runAfterInteractions() {
+    async loadData(uri) {
+        this.setState({
+            loading: true
+        });
         try {
-            const response = await NASAService.neo.feed.get();
-            const neoResponse = (response && response.near_earth_objects) || {};
-            const data = Object.keys(neoResponse).reduce((acc, date) => { return acc.concat(neoResponse[date]) }, []);
-            this.setState({ data });
+            let response;
+            if (uri) {
+                response = await NASAService.arbitrary(uri);
+            } else {
+                response = await NASAService.neo.feed.get();
+            }
+            if (response) {
+                const prevUri = response.links.prev;
+                const nextUri = response.links.next;
+                const neoResponse = response.near_earth_objects;
+                const data = Object.keys(neoResponse).reduce((acc, date) => { return acc.concat(neoResponse[date]) }, []);
+                this.setState({ data, prevUri, nextUri });
+            }
         } catch (err) {
             console.error(err);
+        }
+        this.setState({
+            loading: false
+        });
+    }
+
+    onEndReached() {
+        const { nextUri } = this.state;
+        if (nextUri) {
+            this.loadData(nextUri);
         }
     }
 
     render() {
         return (
             <View>
-                <OrganismListView kind='nasa' data={this.state.data} />
+                <OrganismListView
+                    kind='nasa'
+                    data={this.state.data}
+                    onEndReached={this.onEndReached.bind(this)}
+                    loading={this.state.loading} />
             </View>
         );
     }
