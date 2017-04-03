@@ -1,7 +1,6 @@
 import { StatusBar } from 'react-native';
 
 import * as types from './types';
-import { AudioPlayer } from 'lunchlearn/js/nativemodules';
 
 export function setPlaying(isPlaying, playingId) {
     isPlaying = !!isPlaying;

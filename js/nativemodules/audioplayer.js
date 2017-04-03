@@ -7,6 +7,12 @@ export default class AudioPlayer {
     }
 
     static play(song) {
+        if (typeof song === 'string') {
+        
+        } else if (typeof song === 'number') {
+
+        }
+        song = 'F.R.U.G.';
         this.getModule().play(song);
     }
 

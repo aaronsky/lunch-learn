@@ -11,19 +11,23 @@ export default class OrganismListView extends Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            dataSource: this.createDataSource(this.props.data)
+        };
+    }
+
+    createDataSource(data) {
         const dataSource = new ListView.DataSource({
             rowHasChanged: this.rowHasChanged.bind(this)
         });
-        this.state = {
-            dataSource: dataSource.cloneWithRows(this.props.data)
-        };
+        return dataSource.cloneWithRows(data);
     }
 
     componentWillReceiveProps(newProps) {
         if (newProps.data && newProps.data.length) {
             this.setState({
-                dataSource: this.state.dataSource.cloneWithRows(newProps.data)
-            })
+                dataSource: this.createDataSource(newProps.data)
+            });
         }
     }
 

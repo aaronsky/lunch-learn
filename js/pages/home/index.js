@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { InteractionManager, View } from 'react-native';
+import { InteractionManager, StyleSheet, Text, View } from 'react-native';
 
 import { NASAService } from 'lunchlearn/js/api';
 import { OrganismListView } from 'lunchlearn/js/components/organisms';
@@ -51,6 +51,17 @@ class PageHome extends Component {
         }
     }
 
+    maybeRenderPlayingButton() {
+        if (this.props.app.isPlaying) {
+            return (
+                <View style={{position: 'absolute', bottom: 0, height: 75, backgroundColor: '#000'}}>
+                    <Text style={{color: '#fff'}}>WHAT</Text>
+                </View>
+            );
+        }
+        return null;
+    }
+
     render() {
         return (
             <View>
@@ -59,10 +70,25 @@ class PageHome extends Component {
                     app={this.props.app}
                     data={this.state.data}
                     onEndReached={this.onEndReached.bind(this)} />
+                {this.maybeRenderPlayingButton()}
             </View>
         );
     }
 }
+
+let styles = StyleSheet.create({
+    container: {
+
+    },
+    playerPreview: {
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        bottom: 0,
+        height: 40,
+        backgroundColor: '#bababa'
+    }
+});
 
 export const id = 'home';
 export const title = 'Home';

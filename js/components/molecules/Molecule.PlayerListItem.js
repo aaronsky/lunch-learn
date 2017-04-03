@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { Animated, Share, StyleSheet, TouchableOpacity, View } from 'react-native';
 
-import { AtomIcon, AtomText, AtomPlayerButton } from 'lunchlearn/js/components/atoms';
-
-const BASE_ROW_HEIGHT = 75;
-const EXPANDED_ROW_HEIGHT = 150;
+import { AtomIcon, AtomText } from 'lunchlearn/js/components/atoms';
+import { AudioPlayer } from 'lunchlearn/js/nativemodules';
 
 export default class MoleculePlayerListItem extends Component {
     static defaultProps = {
@@ -15,22 +13,26 @@ export default class MoleculePlayerListItem extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            expandedView: false,
-            expandedValue: new Animated.Value(BASE_ROW_HEIGHT)
+
         };
     }
 
     onPress() {
-        const fromValue = this.state.expandedView ? EXPANDED_ROW_HEIGHT : BASE_ROW_HEIGHT;
-        const toValue = this.state.expandedView ? BASE_ROW_HEIGHT : EXPANDED_ROW_HEIGHT;
-        this.state.expandedValue.setValue(fromValue);
-        this.setState({
-            expandedView: !this.state.expandedView
-        });
-        Animated.spring(this.state.expandedValue, {
-            toValue,
-            friction: 5
-        }).start();
+        const { data } = this.props;
+        const currentId = data.neo_reference_id;
+        if (this.props.app.isPlaying) {
+            if (this.props.app.playingId === currentId) {
+                this.props.app.actions.setPlaying(false);
+                AudioPlayer.pause();
+            } else {
+                this.props.app.actions.setPlaying(true, currentId);
+                AudioPlayer.stop();
+                AudioPlayer.play(currentId);
+            }
+        } else {
+            this.props.app.actions.setPlaying(true, currentId);
+            AudioPlayer.play(currentId);
+        }
     }
 
     onLongPress(data) {
@@ -53,19 +55,6 @@ export default class MoleculePlayerListItem extends Component {
         return null;
     }
 
-    renderPlayerButton() {
-        const { app, data } = this.props;
-        const id = data.neo_reference_id;
-        const props = {
-            style: styles.playerButton,
-            app,
-            id
-        }
-        return (
-            <AtomPlayerButton {...props} />
-        );
-    }
-
     formattedTextData(data) {
         return {
             id: data.neo_reference_id,
@@ -76,25 +65,7 @@ export default class MoleculePlayerListItem extends Component {
         };
     }
 
-    maybeRenderCompactView(data) {
-        const formattedData = this.formattedTextData(data);
-
-        return (
-            <View style={styles.container}>
-                <View style={styles.iconContainer}>
-                    <AtomIcon name='globe' style={[styles.safetyIcon, this.getDangerLevelStyle(data)]} />
-                    {this.maybeRenderWarning(data)}
-                </View>
-                <View style={styles.textContainer}>
-                    <AtomText style={styles.title}>{formattedData.name}</AtomText>
-                    <AtomText style={styles.subtitle}>{formattedData.min}m ~ {formattedData.max}m in diameter</AtomText>
-                </View>
-                {this.renderPlayerButton()}
-            </View>
-        );
-    }
-
-    maybeRenderExpandedView(data) {
+    maybeRenderView(data) {
         const formattedData = this.formattedTextData(data);
 
         return (
@@ -109,7 +80,6 @@ export default class MoleculePlayerListItem extends Component {
                     <AtomText style={styles.subtitle}>{formattedData.velocity} mi/h</AtomText>
                     <AtomText style={styles.subtitle}>ID: {formattedData.id}</AtomText>
                 </View>
-                {this.renderPlayerButton()}
             </View>
         );
     }
@@ -118,9 +88,7 @@ export default class MoleculePlayerListItem extends Component {
         const { data } = this.props;
         return (
             <TouchableOpacity onPress={() => this.onPress()} onLongPress={() => this.onLongPress(this.props.data)}>
-                <Animated.View style={{ height: this.state.expandedValue }}>
-                    {this.state.expandedView ? this.maybeRenderExpandedView(data) : this.maybeRenderCompactView(data)}
-                </Animated.View>
+                {this.maybeRenderView(data)}
             </TouchableOpacity>
         );
     }
@@ -132,7 +100,7 @@ let styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-around',
         alignItems: 'center',
-        height: BASE_ROW_HEIGHT,
+        height: 100,
     },
     iconContainer: {
         flexDirection: 'row',
