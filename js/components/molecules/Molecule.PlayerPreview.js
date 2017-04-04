@@ -2,25 +2,37 @@ import React, { Component } from 'react';
 import { Animated, InteractionManager, StyleSheet, TouchableOpacity, View } from 'react-native';
 
 import { AtomIcon, AtomText } from 'lunchlearn/js/components/atoms';
-import { AudioPlayer } from 'lunchlearn/js/nativemodules';
+import { AudioPlayer, EventEmitter } from 'lunchlearn/js/nativemodules';
 
 export default class MoleculePlayerPreview extends Component {
     constructor(props) {
         super(props);
         this.songTimeSubscription = null;
+        this.songEndSubscription = null;
         this.state = {
-            time: '--:--'
+            time: '--:--',
+            song: {
+                title: '',
+                artist: '',
+                totalTime: '--:--'
+            }
         };
     }
 
     componentDidMount() {
         InteractionManager.runAfterInteractions(() => {
-            this.songTimeSubscription = AudioPlayer.addEventListener('timechange', this.onSongTimeChange.bind(this));
+            const timeChangeEventName = EventEmitter.getEvent('timechange');
+            this.songTimeSubscription = EventEmitter.addListener(timeChangeEventName, this.onSongTimeChange.bind(this));
+            const songEndEventName = EventEmitter.getEvent('ended');
+            this.songEndSubscription = EventEmitter.addListener(songEndEventName, this.onSongEnd.bind(this));
         });
     }
 
     componentWillUnmount() {
+        EventEmitter.removeSubscription(this.songTimeSubscription);
         this.songTimeSubscription = null;
+        EventEmitter.removeSubscription(this.songEndSubscription);
+        this.songEndSubscription = null;
     }
 
     onPress() {
@@ -34,17 +46,22 @@ export default class MoleculePlayerPreview extends Component {
         });
     }
 
+    onSongEnd() {
+        this.props.app.actions.setPlaying(false, null, this.props.app);
+    }
+
     render() {
+        const { song } = this.state;
+        
         return (
             <TouchableOpacity onPress={() => this.onPress()}>
                 <View style={styles.container}>
+                    <AtomText style={styles.text}>{this.state.time}</AtomText>
                     <View style={styles.infoContainer}>
-                        <AtomText style={styles.text}>{this.props.song.title}</AtomText>
-                        <AtomText style={styles.text}>{this.props.song.artist}</AtomText>
+                        <AtomText style={styles.text}>{song.title}</AtomText>
+                        <AtomText style={styles.text}>{song.artist}</AtomText>
                     </View>
-                    <View style={styles.timeContainer}>
-                        <AtomText style={styles.text}>{this.state.time}/{this.props.song.totalTime}</AtomText>
-                    </View>
+                    <AtomText style={styles.text}>{song.totalTime}</AtomText>
                 </View>
             </TouchableOpacity>
         );
@@ -63,10 +80,7 @@ let styles = StyleSheet.create({
         backgroundColor: '#bababa'
     },
     infoContainer: {
-
-    },
-    timeContainer: {
-
+        flexDirection: 'column'
     },
     text: {
 

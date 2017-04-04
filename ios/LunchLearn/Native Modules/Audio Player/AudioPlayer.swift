@@ -21,7 +21,7 @@ class AudioPlayer: NSObject, RCTBridgeModule {
   
   deinit {
     if let observer = timeChangeObserver {
-        player.removeTimeObserver(observer)
+      player.removeTimeObserver(observer)
     }
   }
   
@@ -35,6 +35,31 @@ class AudioPlayer: NSObject, RCTBridgeModule {
       return url.lastPathComponent.replacingOccurrences(of: ".mp3", with: "")
     }
     return [ "songs": songNames ]
+  }
+  
+  public static func itemTo(rnPayload item: AVPlayerItem?) -> [String: Any] {
+    guard let song = item else {
+      return [
+        "title": "",
+        "artist": "",
+        "totalTime": "--:--:--"
+      ]
+    }
+    var payload = [
+      "totalTime": String(time: song.duration)
+    ]
+    let metadata = song.asset.commonMetadata
+    for meta in metadata {
+      guard payload["title"] == nil || payload["artist"] == nil else {
+        break
+      }
+      if meta.commonKey == "title" {
+        payload["title"] = meta.stringValue!
+      } else if meta.commonKey == "artist" {
+        payload["artist"] = meta.stringValue!
+      }
+    }
+    return payload
   }
   
   @objc func play(_ songName: String) -> Void {
@@ -60,28 +85,7 @@ class AudioPlayer: NSObject, RCTBridgeModule {
   }
   
   @objc func getCurrentSong(_ resolve: RCTPromiseResolveBlock, andRejecter reject: RCTPromiseRejectBlock) -> Void {
-    guard let song = player.currentItem else {
-      resolve([
-        "title": "",
-        "artist": "",
-        "totalTime": ""
-      ])
-      return
-    }
-    var payload = [
-      "totalTime": String(song.duration.value)
-    ]
-    let metadata = song.asset.commonMetadata
-    for meta in metadata {
-      guard payload["title"] == nil || payload["artist"] == nil else {
-        break
-      }
-      if meta.commonKey == "title" {
-        payload["title"] = meta.stringValue!
-      } else if meta.commonKey == "artist" {
-        payload["artist"] = meta.stringValue!
-      }
-    }
+    let payload = AudioPlayer.itemTo(rnPayload: player.currentItem)
     resolve(payload)
   }
   
@@ -98,6 +102,7 @@ class AudioPlayer: NSObject, RCTBridgeModule {
       player.removeTimeObserver(observer)
     }
     let playerItem = AVPlayerItem(url: url)
+    NotificationCenter.default.addObserver(self, selector: #selector(songDidEnd), name: .AVPlayerItemDidPlayToEndTime, object: playerItem)
     player.replaceCurrentItem(with: playerItem)
   }
   
@@ -109,5 +114,11 @@ class AudioPlayer: NSObject, RCTBridgeModule {
       return song.duration
     }
     return kCMTimeInvalid
+  }
+  
+  @objc private func songDidEnd(notification: NSNotification) {
+    if let playerItem = notification.object as? AVPlayerItem, playerItem == player.currentItem {
+      _ = EventEmitter.application(UIApplication.shared, songEnded: playerItem)
+    }
   }
 }

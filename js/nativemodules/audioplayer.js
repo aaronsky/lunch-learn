@@ -1,5 +1,4 @@
 import { NativeModules } from 'react-native';
-import { EventEmitter } from './index.js';
 
 export default class AudioPlayer {
     static getModule() {
@@ -34,12 +33,5 @@ export default class AudioPlayer {
     /** async */
     static getCurrentSong() {
         return this.getModule().getCurrentSong();
-    }
-
-    static addEventListener(event, handler) {
-        if (EventEmitter.isValidEvent(event)) {
-            return EventEmitter.addListener(event, handler);
-        }
-        return null;
     }
 }

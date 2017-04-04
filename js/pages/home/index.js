@@ -55,33 +55,24 @@ class PageHome extends Component {
 
     async onRowSelected(data) {
         const currentId = +data.neo_reference_id;
-        let isPlaying = false;
-        let playingId = null;
         if (this.props.app.isPlaying) {
-            if (this.props.app.playingId === currentId) {
-                AudioPlayer.pause();
+            if (currentId === this.props.app.playingId) {
+                this.props.app.actions.setPlaying(false, null, this.props.app);
             } else {
-                isPlaying = true;
-                playingId = currentId;
-                AudioPlayer.stop();
-                AudioPlayer.play(currentId);
+                this.props.app.actions.setPlaying(true, currentId, this.props.app);
             }
         } else {
-            isPlaying = true;
-            playingId = currentId;
-            AudioPlayer.play(currentId);
+            this.props.app.actions.setPlaying(true, currentId, this.props.app);
         }
-        const currentSong = await AudioPlayer.getCurrentSong();
-        this.setState({
-            currentSong
-        });
-        this.props.app.actions.setPlaying(isPlaying, playingId);
     }
 
     maybeRenderPlayerPreview() {
+        const currentSong = AudioPlayer.getCurrentSong();
         if (this.props.app.isPlaying) {
             return (
-                <MoleculePlayerPreview song={this.state.currentSong} />
+                <MoleculePlayerPreview
+                    app={this.props.app}
+                    song={currentSong} />
             );
         }
         return null;
