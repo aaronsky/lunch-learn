@@ -3,14 +3,11 @@ import { AudioPlayer } from 'lunchlearn/js/nativemodules';
 
 const initialState = {
     isPlaying: false,
-    playingId: null,
+    playingId: -1,
     isLoading: false,
 };
 
 function isPlaying(state, action) {
-    if (!action.isPlaying && state.playingId === action.playingId) {
-        action.playingId = null;
-    }
     return {
         ...state,
         isPlaying: action.isPlaying,

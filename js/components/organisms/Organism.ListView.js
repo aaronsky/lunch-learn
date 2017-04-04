@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ActivityIndicator, ListView, StyleSheet, View } from 'react-native';
 
-import { MoleculePlayerListItem } from 'lunchlearn/js/components/molecules';
+import { MoleculeListItem } from 'lunchlearn/js/components/molecules';
 
 export default class OrganismListView extends Component {
     static defaultProps = {
@@ -38,9 +38,10 @@ export default class OrganismListView extends Component {
             app: this.props.app,
             index,
             data,
+            onPress: this.props.onRowSelected
         };
         return (
-            <MoleculePlayerListItem {...props} />
+            <MoleculeListItem {...props} />
         );
     }
 

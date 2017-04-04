@@ -20,6 +20,8 @@
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		661925501E7A4E930072B9E3 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6619254F1E7A4E930072B9E3 /* AudioPlayer.swift */; };
 		6619256C1E7A4EA90072B9E3 /* AudioPlayerBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 6619256B1E7A4EA90072B9E3 /* AudioPlayerBridge.m */; };
+		669CF22A1E931B9C0070BACC /* EventEmitterBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 669CF2291E931B9C0070BACC /* EventEmitterBridge.m */; };
+		669CF22C1E931BC30070BACC /* EventEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669CF22B1E931BC30070BACC /* EventEmitter.swift */; };
 		66EC76891E7A3954002CB788 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EC76881E7A3954002CB788 /* AppDelegate.swift */; };
 		66EC768C1E7A4A36002CB788 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66EC768B1E7A4A36002CB788 /* FontAwesome.ttf */; };
 		66EC76931E7A4A9F002CB788 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66EC76921E7A4A8D002CB788 /* libRNVectorIcons.a */; };
@@ -264,6 +266,8 @@
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		6619254F1E7A4E930072B9E3 /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		6619256B1E7A4EA90072B9E3 /* AudioPlayerBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayerBridge.m; sourceTree = "<group>"; };
+		669CF2291E931B9C0070BACC /* EventEmitterBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventEmitterBridge.m; sourceTree = "<group>"; };
+		669CF22B1E931BC30070BACC /* EventEmitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventEmitter.swift; sourceTree = "<group>"; };
 		66EC76871E7A3954002CB788 /* LunchLearn-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LunchLearn-Bridging-Header.h"; sourceTree = "<group>"; };
 		66EC76881E7A3954002CB788 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66EC768B1E7A4A36002CB788 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = "../../../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
@@ -437,9 +441,19 @@
 			path = "Audio Player";
 			sourceTree = "<group>";
 		};
+		669CF20E1E931B780070BACC /* Event Emitter */ = {
+			isa = PBXGroup;
+			children = (
+				669CF22B1E931BC30070BACC /* EventEmitter.swift */,
+				669CF2291E931B9C0070BACC /* EventEmitterBridge.m */,
+			);
+			path = "Event Emitter";
+			sourceTree = "<group>";
+		};
 		66EC76671E7A350D002CB788 /* Native Modules */ = {
 			isa = PBXGroup;
 			children = (
+				669CF20E1E931B780070BACC /* Event Emitter */,
 				6619256D1E7A4F1F0072B9E3 /* Audio Player */,
 			);
 			path = "Native Modules";
@@ -964,8 +978,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				669CF22A1E931B9C0070BACC /* EventEmitterBridge.m in Sources */,
 				6619256C1E7A4EA90072B9E3 /* AudioPlayerBridge.m in Sources */,
 				66EC76891E7A3954002CB788 /* AppDelegate.swift in Sources */,
+				669CF22C1E931BC30070BACC /* EventEmitter.swift in Sources */,
 				661925501E7A4E930072B9E3 /* AudioPlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

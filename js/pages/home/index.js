@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { InteractionManager, StyleSheet, Text, View } from 'react-native';
+import { InteractionManager, View } from 'react-native';
 
 import { NASAService } from 'lunchlearn/js/api';
+import { MoleculePlayerPreview } from 'lunchlearn/js/components/molecules';
+import { AudioPlayer } from 'lunchlearn/js/nativemodules';
 import { OrganismListView } from 'lunchlearn/js/components/organisms';
 
 class PageHome extends Component {
@@ -51,12 +53,35 @@ class PageHome extends Component {
         }
     }
 
-    maybeRenderPlayingButton() {
+    async onRowSelected(data) {
+        const currentId = +data.neo_reference_id;
+        let isPlaying = false;
+        let playingId = null;
+        if (this.props.app.isPlaying) {
+            if (this.props.app.playingId === currentId) {
+                AudioPlayer.pause();
+            } else {
+                isPlaying = true;
+                playingId = currentId;
+                AudioPlayer.stop();
+                AudioPlayer.play(currentId);
+            }
+        } else {
+            isPlaying = true;
+            playingId = currentId;
+            AudioPlayer.play(currentId);
+        }
+        const currentSong = await AudioPlayer.getCurrentSong();
+        this.setState({
+            currentSong
+        });
+        this.props.app.actions.setPlaying(isPlaying, playingId);
+    }
+
+    maybeRenderPlayerPreview() {
         if (this.props.app.isPlaying) {
             return (
-                <View style={{position: 'absolute', bottom: 0, height: 75, backgroundColor: '#000'}}>
-                    <Text style={{color: '#fff'}}>WHAT</Text>
-                </View>
+                <MoleculePlayerPreview song={this.state.currentSong} />
             );
         }
         return null;
@@ -69,30 +94,17 @@ class PageHome extends Component {
                     kind='nasa'
                     app={this.props.app}
                     data={this.state.data}
-                    onEndReached={this.onEndReached.bind(this)} />
-                {this.maybeRenderPlayingButton()}
+                    onEndReached={this.onEndReached.bind(this)}
+                    onRowSelected={this.onRowSelected.bind(this)} />
+                {this.maybeRenderPlayerPreview()}
             </View>
         );
     }
 }
 
-let styles = StyleSheet.create({
-    container: {
-
-    },
-    playerPreview: {
-        position: 'absolute',
-        left: 0,
-        right: 0,
-        bottom: 0,
-        height: 40,
-        backgroundColor: '#bababa'
-    }
-});
-
 export const id = 'home';
 export const title = 'Home';
 export const LayoutComponent = PageHome;
 export function mapStateToProps(state) {
-	return {};
+    return {};
 }

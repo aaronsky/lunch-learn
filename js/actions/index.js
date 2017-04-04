@@ -4,6 +4,7 @@ import * as types from './types';
 
 export function setPlaying(isPlaying, playingId) {
     isPlaying = !!isPlaying;
+    playingId = playingId || -1;
     return {
         type: types.IS_PLAYING,
         isPlaying,

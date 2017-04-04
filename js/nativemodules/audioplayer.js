@@ -1,4 +1,5 @@
 import { NativeModules } from 'react-native';
+import { EventEmitter } from './index.js';
 
 export default class AudioPlayer {
     static getModule() {
@@ -7,12 +8,12 @@ export default class AudioPlayer {
     }
 
     static play(song) {
-        if (typeof song === 'string') {
-        
+        const songs = this.getModule().songs;
+        if (typeof song === 'string' && songs.indexOf(song) === -1) {
+            return;
         } else if (typeof song === 'number') {
-
+            song = songs[song % songs.length];
         }
-        song = 'F.R.U.G.';
         this.getModule().play(song);
     }
 
@@ -21,12 +22,24 @@ export default class AudioPlayer {
         const song = songs[Math.floor(Math.random() * songs.length)];
         AudioPlayer.play(song)
     }
-    
+
     static pause() {
         this.getModule().pause();
     }
 
     static stop() {
         this.getModule().stop();
+    }
+
+    /** async */
+    static getCurrentSong() {
+        return this.getModule().getCurrentSong();
+    }
+
+    static addEventListener(event, handler) {
+        if (EventEmitter.isValidEvent(event)) {
+            return EventEmitter.addListener(event, handler);
+        }
+        return null;
     }
 }

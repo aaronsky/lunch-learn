@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { Animated, Share, StyleSheet, TouchableOpacity, View } from 'react-native';
 
 import { AtomIcon, AtomText } from 'lunchlearn/js/components/atoms';
-import { AudioPlayer } from 'lunchlearn/js/nativemodules';
 
-export default class MoleculePlayerListItem extends Component {
+export default class MoleculeListItem extends Component {
     static defaultProps = {
         data: {},
         index: -1,
@@ -15,24 +14,6 @@ export default class MoleculePlayerListItem extends Component {
         this.state = {
 
         };
-    }
-
-    onPress() {
-        const { data } = this.props;
-        const currentId = data.neo_reference_id;
-        if (this.props.app.isPlaying) {
-            if (this.props.app.playingId === currentId) {
-                this.props.app.actions.setPlaying(false);
-                AudioPlayer.pause();
-            } else {
-                this.props.app.actions.setPlaying(true, currentId);
-                AudioPlayer.stop();
-                AudioPlayer.play(currentId);
-            }
-        } else {
-            this.props.app.actions.setPlaying(true, currentId);
-            AudioPlayer.play(currentId);
-        }
     }
 
     onLongPress(data) {
@@ -77,7 +58,7 @@ export default class MoleculePlayerListItem extends Component {
                 <View style={styles.textContainer}>
                     <AtomText style={styles.title}>{formattedData.name}</AtomText>
                     <AtomText style={styles.subtitle}>{formattedData.min}m ~ {formattedData.max}m in diameter</AtomText>
-                    <AtomText style={styles.subtitle}>{formattedData.velocity} mi/h</AtomText>
+                    <AtomText style={styles.subtitle}>Relative velocity is {formattedData.velocity} mi/h</AtomText>
                     <AtomText style={styles.subtitle}>ID: {formattedData.id}</AtomText>
                 </View>
             </View>
@@ -87,7 +68,7 @@ export default class MoleculePlayerListItem extends Component {
     render() {
         const { data } = this.props;
         return (
-            <TouchableOpacity onPress={() => this.onPress()} onLongPress={() => this.onLongPress(this.props.data)}>
+            <TouchableOpacity onPress={() => this.props.onPress(this.props.data)} onLongPress={() => this.onLongPress(this.props.data)}>
                 {this.maybeRenderView(data)}
             </TouchableOpacity>
         );
@@ -98,13 +79,14 @@ let styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'row',
-        justifyContent: 'space-around',
+        justifyContent: 'flex-start',
         alignItems: 'center',
-        height: 100,
+        height: 80
     },
     iconContainer: {
         flexDirection: 'row',
-        justifyContent: 'flex-start'
+        justifyContent: 'flex-start',
+        marginHorizontal: 10,
     },
     safetyIcon: {
         margin: 15,
