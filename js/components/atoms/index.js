@@ -1,2 +1,2 @@
-export {default as AtomIcon} from './Atom.Icon';
-export {default as AtomText} from './Atom.Text';
+export { default as AtomDisk } from './Atom.Disk';
+export { default as AtomPeg } from './Atom.Peg';

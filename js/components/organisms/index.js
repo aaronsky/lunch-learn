@@ -1,1 +1,1 @@
-export {default as OrganismListView} from './Organism.ListView';
+export { default as OrganismHanoi } from './Organism.Hanoi';

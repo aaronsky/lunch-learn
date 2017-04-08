@@ -1,2 +1,1 @@
-export {default as MoleculeListItem} from './Molecule.ListItem';
-export {default as MoleculePlayerPreview} from './Molecule.PlayerPreview';
+export { default as MoleculePeg } from './Molecule.Peg';

@@ -1,5 +1,1 @@
-import * as PageHome from 'lunchlearn/js/pages/home';
-
-export {
-    PageHome
-};
+export { default as PageHome } from 'lunchlearn/js/pages/home';
