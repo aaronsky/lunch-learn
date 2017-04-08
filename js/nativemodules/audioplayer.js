@@ -8,18 +8,21 @@ export default class AudioPlayer {
 
     static play(song) {
         const songs = this.getModule().songs;
+        let songName;
         if (typeof song === 'string' && songs.indexOf(song) === -1) {
             return;
         } else if (typeof song === 'number') {
-            song = songs[song % songs.length];
+            songName = songs[song % songs.length];
+        } else {
+            songName = song;
         }
-        this.getModule().play(song);
+        this.getModule().play(songName);
     }
 
     static playRandom() {
         const songs = this.getModule().songs;
         const song = songs[Math.floor(Math.random() * songs.length)];
-        AudioPlayer.play(song)
+        AudioPlayer.play(song);
     }
 
     static pause() {

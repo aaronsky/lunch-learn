@@ -9,7 +9,7 @@ export default class EventEmitter {
         const module = NativeModules.EventEmitter;
         return module;
     }
-    
+
     static getEvent(event) {
         if (EventEmitter.isValidEvent(event)) {
             return this.getModule()[event];

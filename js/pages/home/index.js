@@ -1,7 +1,21 @@
 import React, { Component } from 'react';
-import { TouchableWithoutFeedback, View } from 'react-native';
+import { TouchableWithoutFeedback, StyleSheet, View } from 'react-native';
 
 import { OrganismHanoi } from 'lunchlearn/js/components/organisms';
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'flex-end'
+    },
+    floor: {
+        height: 158,
+        bottom: 0,
+        left: 0,
+        right: 0,
+        backgroundColor: '#000000'
+    }
+});
 
 export default class PageHome extends Component {
     constructor(props) {
@@ -12,15 +26,15 @@ export default class PageHome extends Component {
     }
 
     onPress() {
-        console.log('press');
         this.hanoi.startHanoi();
     }
 
     render() {
         return (
             <TouchableWithoutFeedback onPress={this.onPress}>
-                <View>
+                <View style={styles.container}>
                     <OrganismHanoi ref={(ref) => { this.hanoi = ref; }} />
+                    <View style={styles.floor} />
                 </View>
             </TouchableWithoutFeedback>
         );

@@ -7,6 +7,10 @@ const styles = StyleSheet.create({
     container: {
         alignItems: 'center'
     },
+    label: {
+        fontSize: 16,
+        margin: 10
+    },
     disks: {
         position: 'absolute',
         bottom: 0,
@@ -16,24 +20,30 @@ const styles = StyleSheet.create({
 
 export default class MoleculePeg extends Component {
     static propTypes = {
-        id: React.PropTypes.string.isRequired
+        id: React.PropTypes.string.isRequired,
+        children: React.PropTypes.oneOfType([
+            React.PropTypes.arrayOf(React.PropTypes.node),
+            React.PropTypes.node
+        ])
     };
 
-    constructor(props) {
-        super(props);
-        this.state = {
+    static defaultProps = {
+        children: null
+    };
 
-        };
+    componentWillReceiveProps(newProps) {
+
     }
-
 
     render() {
         return (
             <View style={styles.container}>
-                <Text>{this.props.id}</Text>
+                <Text style={styles.label}>
+                    {this.props.id}
+                </Text>
                 <AtomPeg />
                 <View style={styles.disks}>
-                {this.props.children}
+                    {this.props.children}
                 </View>
             </View>
         );

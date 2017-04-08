@@ -12,15 +12,28 @@ const styles = StyleSheet.create({
     }
 });
 
+const INITIAL_DISK_LIST = [
+    <AtomDisk size={1} key="disk-1" />,
+    <AtomDisk size={2} key="disk-2" />,
+    <AtomDisk size={3} key="disk-3" />,
+    <AtomDisk size={4} key="disk-4" />,
+    <AtomDisk size={5} key="disk-5" />
+];
+function getInitialState() {
+    return {
+        a: [...INITIAL_DISK_LIST],
+        b: [],
+        c: []
+    };
+}
+
 export default class OrganismHanoi extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            a: [5, 4, 3, 2, 1],
-            b: [],
-            c: []
-        };
-        this.createDisks = this.createDisks.bind(this);
+        this.state = getInitialState();
+        this.aPeg = null;
+        this.bPeg = null;
+        this.cPeg = null;
     }
 
     setStateAsync(newState) {
@@ -28,56 +41,48 @@ export default class OrganismHanoi extends Component {
     }
 
     async startHanoi() {
+        console.log(this.aPeg, this.bPeg, this.cPeg);
         await this.resetHanoi();
-        console.log('starting in 1 second');
-        setTimeout(() => this.hanoi(this.state.a.length, 'a', 'c', 'b'), 1000);
+        await this.hanoi(this.state.a.length, 'a', 'c', 'b');
+        console.log(this.state);
     }
 
     async hanoi(diskNum, fromPeg, toPeg, bufferPeg) {
         if (diskNum === 0) {
             return;
         }
-        this.hanoi(diskNum - 1, fromPeg, bufferPeg, toPeg);
+        await this.hanoi(diskNum - 1, fromPeg, bufferPeg, toPeg);
         console.log('Move disk', diskNum, 'from peg', fromPeg, 'to peg', toPeg);
         await this.moveDisk(fromPeg, toPeg);
-        this.hanoi(diskNum - 1, bufferPeg, toPeg, fromPeg);
+        await this.hanoi(diskNum - 1, bufferPeg, toPeg, fromPeg);
     }
 
-    moveDisk(fromPeg, toPeg) {
+    async moveDisk(fromPeg, toPeg) {
         const fromList = [...this.state[fromPeg]];
         const toList = [...this.state[toPeg]];
-        toList.push(fromList.pop());
-        return this.setStateAsync({
+        const disk = fromList.pop();
+        toList.push(disk);
+        await this.setStateAsync({
             [fromPeg]: fromList,
             [toPeg]: toList
         });
     }
 
     resetHanoi() {
-        return this.setStateAsync({
-            a: [5, 4, 3, 2, 1],
-            b: [],
-            c: []
-        });
-    }
-
-    createDisks(disk, index) {
-        return (
-            <AtomDisk size={disk} key={`disk-${index}`} />
-        );
+        return this.setStateAsync(getInitialState());
     }
 
     render() {
         return (
             <View style={styles.container}>
-                <MoleculePeg id="A">
-                    {this.state.a.reverse().map(this.createDisks)}
+                <MoleculePeg id="A" ref={(ref) => { this.aPeg = ref; }}>
+                    {this.state.a}
                 </MoleculePeg>
-                <MoleculePeg id="B">
-                    {this.state.b.reverse().map(this.createDisks)}
+                <MoleculePeg id="B" ref={(ref) => { this.bPeg = ref; }}>
+                    {this.state.b}
                 </MoleculePeg>
-                <MoleculePeg id="C">
-                    {this.state.c.reverse().map(this.createDisks)}
+                <MoleculePeg id="C" ref={(ref) => { this.cPeg = ref; }}>
+                    {this.state.c}
                 </MoleculePeg>
             </View>
         );

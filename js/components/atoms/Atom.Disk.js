@@ -1,38 +1,39 @@
 import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
 
+function buildStyle(size) {
+    const width = (size ** 3) + 30;
+    const height = 20;
+    const red = (size * 16) + 16;
+    const green = (size * 32) + 64;
+    const blue = (size * 24) + 32;
+    const backgroundColor = `#${red.toString(16)}${green.toString(16)}${blue.toString(16)}`;
+    return StyleSheet.create({
+        base: { width, height, backgroundColor }
+    });
+}
+
 export default class AtomDisk extends Component {
     static propTypes = {
-        size: React.PropTypes.number,
-        style: View.propTypes.style,
+        size: React.PropTypes.number.isRequired,
+        style: View.propTypes.style
     };
 
     static defaultProps = {
-        size: 1,
-        style: null,
+        style: null
     };
 
     constructor(props) {
         super(props);
 
         this.state = {
-            baseStyle: this.buildStyle(this.props.size)
+            baseStyle: buildStyle(this.props.size)
         };
     }
 
     componentWillReceiveProps(newProps) {
         this.setState({
-            baseStyle: this.buildStyle(newProps.size)
-        });
-    }
-
-    buildStyle(size) {
-        return StyleSheet.create({
-            base: {
-                width: (size ** 3) + 30,
-                height: 20,
-                backgroundColor: `#${((size * 16) + 16).toString(16)}${((size * 32) + 64).toString(16)}${((size * 24) + 32).toString(16)}`
-            }
+            baseStyle: buildStyle(newProps.size)
         });
     }
 

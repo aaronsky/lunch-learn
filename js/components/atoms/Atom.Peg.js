@@ -3,8 +3,8 @@ import { StyleSheet, View } from 'react-native';
 
 const styles = StyleSheet.create({
     base: {
-        width: 20,
-        height: 200,
+        width: 10,
+        height: 125,
         backgroundColor: '#000000',
     },
 });
