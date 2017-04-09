@@ -20,6 +20,8 @@
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		661925501E7A4E930072B9E3 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6619254F1E7A4E930072B9E3 /* AudioPlayer.swift */; };
 		6619256C1E7A4EA90072B9E3 /* AudioPlayerBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 6619256B1E7A4EA90072B9E3 /* AudioPlayerBridge.m */; };
+		661EF3C91E9AF55900B74BA6 /* tada.wav in Resources */ = {isa = PBXBuildFile; fileRef = 661EF3C81E9AF55900B74BA6 /* tada.wav */; };
+		661EF3CB1E9AF56C00B74BA6 /* ding.wav in Resources */ = {isa = PBXBuildFile; fileRef = 661EF3CA1E9AF56C00B74BA6 /* ding.wav */; };
 		664C5CE21E93D1A100F3B0E3 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664C5CE11E93D1A100F3B0E3 /* StringExtensions.swift */; };
 		669CF22A1E931B9C0070BACC /* EventEmitterBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 669CF2291E931B9C0070BACC /* EventEmitterBridge.m */; };
 		669CF22C1E931BC30070BACC /* EventEmitter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669CF22B1E931BC30070BACC /* EventEmitter.swift */; };
@@ -221,6 +223,8 @@
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		6619254F1E7A4E930072B9E3 /* AudioPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		6619256B1E7A4EA90072B9E3 /* AudioPlayerBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayerBridge.m; sourceTree = "<group>"; };
+		661EF3C81E9AF55900B74BA6 /* tada.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tada.wav; sourceTree = "<group>"; };
+		661EF3CA1E9AF56C00B74BA6 /* ding.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ding.wav; sourceTree = "<group>"; };
 		664C5CE11E93D1A100F3B0E3 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		669CF2291E931B9C0070BACC /* EventEmitterBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventEmitterBridge.m; sourceTree = "<group>"; };
 		669CF22B1E931BC30070BACC /* EventEmitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventEmitter.swift; sourceTree = "<group>"; };
@@ -437,6 +441,8 @@
 		66EE80AA1E8F6E35002C67FA /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				661EF3CA1E9AF56C00B74BA6 /* ding.wav */,
+				661EF3C81E9AF55900B74BA6 /* tada.wav */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -779,6 +785,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				661EF3CB1E9AF56C00B74BA6 /* ding.wav in Resources */,
+				661EF3C91E9AF55900B74BA6 /* tada.wav in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -798,7 +806,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/packager/react-native-xcode.sh";
+			shellScript = "export NODE_BINARY=node\nrm -rf ../dist\n../node_modules/.bin/tsc\n../node_modules/react-native/packager/react-native-xcode.sh";
 		};
 /* End PBXShellScriptBuildPhase section */
 

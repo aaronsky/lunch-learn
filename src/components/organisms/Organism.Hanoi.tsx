@@ -4,13 +4,17 @@ import { StyleSheet, View, ViewStyle } from 'react-native';
 
 import { AtomDisk } from '../atoms';
 import { MoleculePeg } from '../molecules';
-import { AudioPlayer } from '../../nativemodules';
+import { AudioPlayer, EventEmitter } from '../../nativemodules';
 
-interface State {
+interface Disks {
     [peg: string]: JSX.Element[];
     a?: JSX.Element[];
     b?: JSX.Element[];
     c?: JSX.Element[];
+}
+
+interface State {
+    disks?: Disks;
 }
 
 interface Style {
@@ -32,7 +36,7 @@ const INITIAL_DISK_LIST = [
     <AtomDisk size={4} key="disk-4" />,
     <AtomDisk size={5} key="disk-5" />
 ];
-function getInitialState(): State {
+function createDisks(): Disks {
     return {
         a: [...INITIAL_DISK_LIST],
         b: [],
@@ -41,29 +45,28 @@ function getInitialState(): State {
 }
 
 export default class OrganismHanoi extends Component<{}, State> {
-    aPeg: MoleculePeg;
-    bPeg: MoleculePeg;
-    cPeg: MoleculePeg;
+    aPeg: MoleculePeg = null;
+    bPeg: MoleculePeg = null;
+    cPeg: MoleculePeg = null;
 
     constructor(props: any) {
         super(props);
-        this.state = getInitialState();
-        this.aPeg = null;
-        this.bPeg = null;
-        this.cPeg = null;
+        this.state = {
+            disks: createDisks()
+        };
     }
 
-    setStateAsync(newState: State) {
-        return new Promise(resolve => this.setState(newState, () => resolve()));
+    setStateAsync(newState: State): Promise<void> {
+        return new Promise<void>(resolve => this.setState(newState, () => resolve()));
     }
 
-    async startHanoi() {
+    async startHanoi(): Promise<void> {
         await this.resetHanoi();
-        await this.hanoi(this.state.a.length, 'a', 'c', 'b');
+        await this.hanoi(this.state.disks.a.length, 'a', 'c', 'b');
         AudioPlayer.play('tada');
     }
 
-    async hanoi(diskNum: number, fromPeg: string, toPeg: string, bufferPeg: string) {
+    async hanoi(diskNum: number, fromPeg: string, toPeg: string, bufferPeg: string): Promise<void> {
         if (diskNum === 0) {
             return;
         }
@@ -72,36 +75,45 @@ export default class OrganismHanoi extends Component<{}, State> {
         await this.hanoi(diskNum - 1, bufferPeg, toPeg, fromPeg);
     }
 
-    async moveDisk(fromPeg: string, toPeg: string) {
-        const fromList = [...this.state[fromPeg]];
-        const toList = [...this.state[toPeg]];
+    async moveDisk(fromPeg: string, toPeg: string): Promise<void> {
+        const fromList = [...this.state.disks[fromPeg]];
+        const toList = [...this.state.disks[toPeg]];
         const disk = fromList.pop();
         toList.push(disk);
         await this.setStateAsync({
-            [fromPeg]: fromList,
-            [toPeg]: toList
+            disks: {
+                ...this.state.disks,
+                [fromPeg]: fromList,
+                [toPeg]: toList
+            }
         });
-        return new Promise(resolve => setTimeout(() => {
+        return new Promise<void>(resolve => {
+            let songEndSubscription = EventEmitter.addListener(EventEmitter.getEvent('ended'), () => {
+                EventEmitter.removeSubscription(songEndSubscription);
+                songEndSubscription = null;
+                resolve();
+            });
             AudioPlayer.play('ding');
-            resolve();
-        }, 1000));
+        });
     }
 
     resetHanoi() {
-        return this.setStateAsync(getInitialState());
+        return this.setStateAsync({
+            disks: createDisks()
+        });
     }
 
     render() {
         return (
             <View style={styles.container}>
                 <MoleculePeg id="A" ref={(ref: MoleculePeg) => { this.aPeg = ref; }}>
-                    {this.state.a}
+                    {this.state.disks.a}
                 </MoleculePeg>
                 <MoleculePeg id="B" ref={(ref: MoleculePeg) => { this.bPeg = ref; }}>
-                    {this.state.b}
+                    {this.state.disks.b}
                 </MoleculePeg>
                 <MoleculePeg id="C" ref={(ref: MoleculePeg) => { this.cPeg = ref; }}>
-                    {this.state.c}
+                    {this.state.disks.c}
                 </MoleculePeg>
             </View>
         );

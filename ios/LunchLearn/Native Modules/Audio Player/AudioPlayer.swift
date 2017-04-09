@@ -11,18 +11,10 @@ import AVFoundation
 
 @objc(AudioPlayer)
 class AudioPlayer: NSObject, RCTBridgeModule {
-  var player: AVPlayer
-  fileprivate var timeChangeObserver: Any?
+  fileprivate var players: [AVAudioPlayer]
   
   override init() {
-    player = AVPlayer()
-    timeChangeObserver = nil
-  }
-  
-  deinit {
-    if let observer = timeChangeObserver {
-      player.removeTimeObserver(observer)
-    }
+      players = []
   }
   
   public static func moduleName() -> String! {
@@ -30,95 +22,36 @@ class AudioPlayer: NSObject, RCTBridgeModule {
   }
   
   public func constantsToExport() -> [String : Any]! {
-    let urls = Bundle.main.urls(forResourcesWithExtension: "mp3", subdirectory: nil)!
+    let urls = Bundle.main.urls(forResourcesWithExtension: "wav", subdirectory: nil)!
     let songNames = urls.map() { url in
-      return url.lastPathComponent.replacingOccurrences(of: ".mp3", with: "")
+      return url.lastPathComponent.replacingOccurrences(of: ".wav", with: "")
     }
     return [ "songs": songNames ]
   }
   
-  public static func itemTo(rnPayload item: AVPlayerItem?) -> [String: Any] {
-    guard let song = item else {
-      return [
-        "title": "",
-        "artist": "",
-        "totalTime": "--:--:--"
-      ]
-    }
-    var payload = [
-      "totalTime": String(time: song.duration)
-    ]
-    let metadata = song.asset.commonMetadata
-    for meta in metadata {
-      guard payload["title"] == nil || payload["artist"] == nil else {
-        break
-      }
-      if meta.commonKey == "title" {
-        payload["title"] = meta.stringValue!
-      } else if meta.commonKey == "artist" {
-        payload["artist"] = meta.stringValue!
-      }
-    }
-    return payload
-  }
-  
   @objc func play(_ songName: String) -> Void {
-    if player.currentItem == nil {
-      reset(songName)
-    }
-    let seconds = Float64(0.1)
-    let timeScale = Int32(NSEC_PER_SEC)
-    let interval = CMTimeMakeWithSeconds(seconds, timeScale)
-    timeChangeObserver = player.addPeriodicTimeObserver(forInterval: interval, queue: nil) { time in
-      _ = EventEmitter.application(UIApplication.shared, songTimeChanged: time)
-    }
-    player.play()
-  }
-  
-  @objc func pause() -> Void {
-    player.pause()
-  }
-  
-  @objc func stop() -> Void {
-    pause()
-    reset()
-  }
-  
-  @objc func getCurrentSong(_ resolve: RCTPromiseResolveBlock, andRejecter reject: RCTPromiseRejectBlock) -> Void {
-    let payload = AudioPlayer.itemTo(rnPayload: player.currentItem)
-    resolve(payload)
-  }
-  
-  func reset(_ songName: String? = nil) -> Void {
-    guard let song = songName else {
-      player.replaceCurrentItem(with: nil)
+    guard let url = Bundle.main.url(forResource: songName, withExtension: "wav") else {
+      print("\(songName).wav not found in bundle")
       return
     }
-    guard let url = Bundle.main.url(forResource: song, withExtension: "mp3") else {
-      player.replaceCurrentItem(with: nil)
-      return
+    do {
+      let player = try AVAudioPlayer(contentsOf: url)
+      player.volume = 1.0
+      player.delegate = self
+      players.append(player)
+      player.prepareToPlay()
+      player.play()
+    } catch {
+      print(error)
     }
-    if let observer = timeChangeObserver {
-      player.removeTimeObserver(observer)
-    }
-    let playerItem = AVPlayerItem(url: url)
-    NotificationCenter.default.addObserver(self, selector: #selector(songDidEnd), name: .AVPlayerItemDidPlayToEndTime, object: playerItem)
-    player.replaceCurrentItem(with: playerItem)
   }
-  
-  func currentTime() -> CMTime {
-    guard let song = player.currentItem else {
-      return kCMTimeInvalid
-    }
-    if song.status == .readyToPlay {
-      return song.duration
-    }
-    return kCMTimeInvalid
-  }
-  
-  @objc private func songDidEnd(notification: NSNotification) {
-    if let playerItem = notification.object as? AVPlayerItem, playerItem == player.currentItem {
-      _ = EventEmitter.application(UIApplication.shared, songEnded: playerItem)
+}
+
+extension AudioPlayer: AVAudioPlayerDelegate {
+  func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+    _ = EventEmitter.application(UIApplication.shared, songEnded: nil)
+    if let index = players.index(of: player) {
+      players.remove(at: index)
     }
   }
 }

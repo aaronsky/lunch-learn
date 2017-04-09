@@ -18,23 +18,4 @@ export default class AudioPlayer {
         }
         this.getModule().play(songName);
     }
-
-    static playRandom() {
-        const songs = this.getModule().songs;
-        const song = songs[Math.floor(Math.random() * songs.length)];
-        AudioPlayer.play(song);
-    }
-
-    static pause() {
-        this.getModule().pause();
-    }
-
-    static stop() {
-        this.getModule().stop();
-    }
-
-    /** async */
-    static getCurrentSong() {
-        return this.getModule().getCurrentSong();
-    }
 }
