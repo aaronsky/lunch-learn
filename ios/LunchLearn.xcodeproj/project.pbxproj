@@ -226,43 +226,6 @@
 		669CF22B1E931BC30070BACC /* EventEmitter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventEmitter.swift; sourceTree = "<group>"; };
 		66EC76871E7A3954002CB788 /* LunchLearn-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LunchLearn-Bridging-Header.h"; sourceTree = "<group>"; };
 		66EC76881E7A3954002CB788 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		66EE80AB1E8F6E4D002C67FA /* _3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = _3.mp3; sourceTree = "<group>"; };
-		66EE80AC1E8F6E4D002C67FA /* 05 Yoda Goes For A Swim.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "05 Yoda Goes For A Swim.mp3"; sourceTree = "<group>"; };
-		66EE80AD1E8F6E4D002C67FA /* 5am est.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "5am est.mp3"; sourceTree = "<group>"; };
-		66EE80AE1E8F6E4D002C67FA /* 08 Space Revival.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "08 Space Revival.mp3"; sourceTree = "<group>"; };
-		66EE80AF1E8F6E4D002C67FA /* 1000.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1000.mp3; sourceTree = "<group>"; };
-		66EE80B01E8F6E4D002C67FA /* 949812398OOOO.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 949812398OOOO.mp3; sourceTree = "<group>"; };
-		66EE80B11E8F6E4D002C67FA /* Capsule Silence.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Capsule Silence.mp3"; sourceTree = "<group>"; };
-		66EE80B21E8F6E4D002C67FA /* Crash(Crashed).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Crash(Crashed).mp3"; sourceTree = "<group>"; };
-		66EE80B31E8F6E4D002C67FA /* e-mode.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "e-mode.mp3"; sourceTree = "<group>"; };
-		66EE80B41E8F6E4D002C67FA /* F.R.U.G..mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = F.R.U.G..mp3; sourceTree = "<group>"; };
-		66EE80B51E8F6E4D002C67FA /* FEELGOOD.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = FEELGOOD.mp3; sourceTree = "<group>"; };
-		66EE80B61E8F6E4D002C67FA /* forest walk.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "forest walk.mp3"; sourceTree = "<group>"; };
-		66EE80B71E8F6E4D002C67FA /* gentle anxious.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "gentle anxious.mp3"; sourceTree = "<group>"; };
-		66EE80B81E8F6E4D002C67FA /* Glass.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Glass.mp3; sourceTree = "<group>"; };
-		66EE80B91E8F6E4D002C67FA /* Gurli.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Gurli.mp3; sourceTree = "<group>"; };
-		66EE80BA1E8F6E4D002C67FA /* H4rdcore Secret.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "H4rdcore Secret.mp3"; sourceTree = "<group>"; };
-		66EE80BB1E8F6E4D002C67FA /* Just Dive.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Just Dive.mp3"; sourceTree = "<group>"; };
-		66EE80BC1E8F6E4D002C67FA /* Lilo (ft. Lindsay Lowend).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Lilo (ft. Lindsay Lowend).mp3"; sourceTree = "<group>"; };
-		66EE80BD1E8F6E4D002C67FA /* Miami Potato.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Miami Potato.mp3"; sourceTree = "<group>"; };
-		66EE80BE1E8F6E4D002C67FA /* My Heart My Body.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "My Heart My Body.mp3"; sourceTree = "<group>"; };
-		66EE80BF1E8F6E4D002C67FA /* pcj.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pcj.mp3; sourceTree = "<group>"; };
-		66EE80C01E8F6E4D002C67FA /* Pearl.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Pearl.mp3; sourceTree = "<group>"; };
-		66EE80C11E8F6E4D002C67FA /* Phase2X.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Phase2X.mp3; sourceTree = "<group>"; };
-		66EE80C21E8F6E4D002C67FA /* PM Dawn.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "PM Dawn.mp3"; sourceTree = "<group>"; };
-		66EE80C31E8F6E4D002C67FA /* Poisonous Gas.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Poisonous Gas.mp3"; sourceTree = "<group>"; };
-		66EE80C41E8F6E4D002C67FA /* Rush.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Rush.mp3; sourceTree = "<group>"; };
-		66EE80C51E8F6E4D002C67FA /* Strawberry Love (ft. Amy Cakes).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Strawberry Love (ft. Amy Cakes).mp3"; sourceTree = "<group>"; };
-		66EE80C61E8F6E4D002C67FA /* Swan.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Swan.mp3; sourceTree = "<group>"; };
-		66EE80C71E8F6E4D002C67FA /* Sweet & Sour - Lovelyz (Anamanaguchi BOOtleg).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Sweet & Sour - Lovelyz (Anamanaguchi BOOtleg).mp3"; sourceTree = "<group>"; };
-		66EE80C81E8F6E4D002C67FA /* sweet sunset.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sweet sunset.mp3"; sourceTree = "<group>"; };
-		66EE80C91E8F6E4D002C67FA /* Thinking About U.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Thinking About U.mp3"; sourceTree = "<group>"; };
-		66EE80CA1E8F6E4D002C67FA /* Time Moves On.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Time Moves On.mp3"; sourceTree = "<group>"; };
-		66EE80CB1E8F6E4D002C67FA /* Toi et Moi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Toi et Moi.mp3"; sourceTree = "<group>"; };
-		66EE80CC1E8F6E4D002C67FA /* Unalive.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Unalive.mp3; sourceTree = "<group>"; };
-		66EE80CD1E8F6E4D002C67FA /* UR CRAZY 4 DIS 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "UR CRAZY 4 DIS 1.mp3"; sourceTree = "<group>"; };
-		66EE80CE1E8F6E4D002C67FA /* when yr around.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "when yr around.mp3"; sourceTree = "<group>"; };
-		66EE80CF1E8F6E4D002C67FA /* XS.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = XS.mp3; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -474,43 +437,6 @@
 		66EE80AA1E8F6E35002C67FA /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				66EE80AB1E8F6E4D002C67FA /* _3.mp3 */,
-				66EE80AC1E8F6E4D002C67FA /* 05 Yoda Goes For A Swim.mp3 */,
-				66EE80AD1E8F6E4D002C67FA /* 5am est.mp3 */,
-				66EE80AE1E8F6E4D002C67FA /* 08 Space Revival.mp3 */,
-				66EE80AF1E8F6E4D002C67FA /* 1000.mp3 */,
-				66EE80B01E8F6E4D002C67FA /* 949812398OOOO.mp3 */,
-				66EE80B11E8F6E4D002C67FA /* Capsule Silence.mp3 */,
-				66EE80B21E8F6E4D002C67FA /* Crash(Crashed).mp3 */,
-				66EE80B31E8F6E4D002C67FA /* e-mode.mp3 */,
-				66EE80B41E8F6E4D002C67FA /* F.R.U.G..mp3 */,
-				66EE80B51E8F6E4D002C67FA /* FEELGOOD.mp3 */,
-				66EE80B61E8F6E4D002C67FA /* forest walk.mp3 */,
-				66EE80B71E8F6E4D002C67FA /* gentle anxious.mp3 */,
-				66EE80B81E8F6E4D002C67FA /* Glass.mp3 */,
-				66EE80B91E8F6E4D002C67FA /* Gurli.mp3 */,
-				66EE80BA1E8F6E4D002C67FA /* H4rdcore Secret.mp3 */,
-				66EE80BB1E8F6E4D002C67FA /* Just Dive.mp3 */,
-				66EE80BC1E8F6E4D002C67FA /* Lilo (ft. Lindsay Lowend).mp3 */,
-				66EE80BD1E8F6E4D002C67FA /* Miami Potato.mp3 */,
-				66EE80BE1E8F6E4D002C67FA /* My Heart My Body.mp3 */,
-				66EE80BF1E8F6E4D002C67FA /* pcj.mp3 */,
-				66EE80C01E8F6E4D002C67FA /* Pearl.mp3 */,
-				66EE80C11E8F6E4D002C67FA /* Phase2X.mp3 */,
-				66EE80C21E8F6E4D002C67FA /* PM Dawn.mp3 */,
-				66EE80C31E8F6E4D002C67FA /* Poisonous Gas.mp3 */,
-				66EE80C41E8F6E4D002C67FA /* Rush.mp3 */,
-				66EE80C51E8F6E4D002C67FA /* Strawberry Love (ft. Amy Cakes).mp3 */,
-				66EE80C61E8F6E4D002C67FA /* Swan.mp3 */,
-				66EE80C71E8F6E4D002C67FA /* Sweet & Sour - Lovelyz (Anamanaguchi BOOtleg).mp3 */,
-				66EE80C81E8F6E4D002C67FA /* sweet sunset.mp3 */,
-				66EE80C91E8F6E4D002C67FA /* Thinking About U.mp3 */,
-				66EE80CA1E8F6E4D002C67FA /* Time Moves On.mp3 */,
-				66EE80CB1E8F6E4D002C67FA /* Toi et Moi.mp3 */,
-				66EE80CC1E8F6E4D002C67FA /* Unalive.mp3 */,
-				66EE80CD1E8F6E4D002C67FA /* UR CRAZY 4 DIS 1.mp3 */,
-				66EE80CE1E8F6E4D002C67FA /* when yr around.mp3 */,
-				66EE80CF1E8F6E4D002C67FA /* XS.mp3 */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
