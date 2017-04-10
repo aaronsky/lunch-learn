@@ -1,3 +1,3 @@
 # Lunch and Learn
 
-Display OpenAPI.gov data and demonstrate creating native modules in React Native
+Solve Tower of Hanoi problem while demonstrating how to create native modules in React Native
