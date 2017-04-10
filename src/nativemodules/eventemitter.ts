@@ -1,10 +1,15 @@
-import { EmitterSubscription, NativeEventEmitter, NativeModules } from 'react-native';
+import { EmitterSubscription, NativeAppEventEmitter, NativeEventEmitter, NativeModules, Platform } from 'react-native';
 
 let emitter: NativeEventEmitter;
 
+const iOS = Platform.OS === 'ios';
+const Android = Platform.OS === 'android';
+
 export default class EventEmitter {
     static init() {
-        emitter = new NativeEventEmitter(this.getModule());
+        if (iOS) {
+            emitter = new NativeEventEmitter(this.getModule());
+        }
     }
 
     static getModule() {
@@ -13,7 +18,10 @@ export default class EventEmitter {
     }
 
     static getEvent(event: string) {
-        if (EventEmitter.isValidEvent(event)) {
+        if (Android) {
+            // Cross your fingers and hope for the best
+            return event;
+        } else if (EventEmitter.isValidEvent(event)) {
             return this.getModule()[event];
         }
         return null;
@@ -24,11 +32,19 @@ export default class EventEmitter {
     }
 
     static addListener(event: string, handler: (...args: any[]) => any) {
-        return emitter.addListener(event, handler);
+        if (Android) {
+            return NativeAppEventEmitter.addListener(event, handler);
+        } else {
+            return emitter.addListener(event, handler);
+        }
     }
 
     static removeSubscription(subscription: EmitterSubscription) {
-        emitter.removeSubscription(subscription);
+        if (Android) {
+            NativeAppEventEmitter.removeSubscription(subscription);
+        } else {
+            emitter.removeSubscription(subscription);
+        }
     }
 }
 EventEmitter.init();
